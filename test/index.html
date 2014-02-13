@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Amaran JS Stylish Notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../src/css/jquery.amaran.css" rel="stylesheet">
+    <link href="../src/css/theme/default.css" rel="stylesheet">
+    <link href="../src/css/theme/user.css" rel="stylesheet">
+    <link href="../src/css/theme/blur.css" rel="stylesheet">
+    <link href="../src/css/theme/metro.css" rel="stylesheet">
+    <style>
+      body {
+         background: #303538;
+        padding:50px;
+      }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <button class="ok">Amaran Magic</button>
+  <button class="user">Amaran User</button>
+  <button class="blur">Amaran Blur</button>
+   <button class="metro">Amaran Metro</button>
+   <button class="newtest">New Test</button>
+  <script src="../src/js/jquery-1.9.1.min.js"></script>
+  <script src="../src/js/jquery.amaran.js"></script>
+  <script>
+    $(function(){
+      
+
+      $('.ok').click(function(){
+        $.amaran({
+          content:{
+                message:'Merhaba Dunya sdfasd',
+                size:'1.4 GB',
+                file:'jquery.resize.js',
+                icon:'fa fa-cogs'
+               },
+          beforeStart:function(){
+            console.log('beforeStart function executed');
+          },
+          afterEnd:function(){
+            console.log('Merhaba Dünya Nassın , iyisin ? Anangiller , babangiller nasıllar.');
+          },
+          position:'top right',
+          inEffect:'slideTop',
+          outEffect:'slideTop',
+          theme:'default error',
+          sticky:true,
+          closeOnClick:false,
+          closeButton:true
+
+        });        
+      });
+
+
+       $('.user').click(function(){
+        $.amaran({
+          content:{
+                img:'http://api.randomuser.me/0.2/portraits/men/36.jpg',
+                user:'Hakan ERSU',
+                message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ducimus?'
+               },
+          position:'top right',
+          inEffect:'slide-right',
+          outEffect:'slide-top',
+          theme:'user green',
+          closeButton:true
+
+        });        
+      });
+    
+
+    $('.blur').click(function(){
+        $.amaran({
+          content:{
+                title:'Warning',
+                message:'Your CPU Overheated.Be Careful'
+               },
+          position:'bottom right',
+          inEffect:'slide-right',
+          outEffect:'slide-bottom',
+          theme:'blur',
+          sticky:true
+
+        });        
+      });
+        $('.metro').click(function(){
+        $.amaran({
+          content:{
+            message:'<h2>Updates are avalaible for your PC</h2><p>Go to Windows Update to install updates!</p>',
+            buttons:'<a href="http://google.com">Install</a><a href="#" class="amaran-close-all" onclick="$.amaran.close()">Close</a>',
+            background:'#8C0095'
+          },
+          position:'center center',
+          inEffect:'fade',
+          outEffect:'slide-top',
+          theme:'metro',
+          sticky:true,
+          clearAll:true
+
+        });        
+      });
+
+$('.newtest').on('click',function(){
+  $.amaran({
+    content:{
+      title:'Warning',
+      message:'Your CPU Overheated.Be Careful'
+    },
+    position:'top left',
+    inEffect:'slideLeft',
+    outEffect:'slideTop',
+    theme:'default error',
+    sticky:true
+  });
+});
+
+
+
+
+
+    });
+  </script>
+  </body>
+</html>

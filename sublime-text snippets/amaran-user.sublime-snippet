@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+	\$.amaran({
+        content:{
+        	img:'${1:imglink}',
+			user:'${2:username}',
+			message:'${3:messageLink}'
+        },
+        // type : blue,yellow,green
+        theme:'default ${4:type}',
+        position:'bottom right',
+        inEffect:'slideBottom',
+        outEffect:'slideTop'
+    });
+]]></content>
+	<tabTrigger>amaran:user</tabTrigger>
+	<scope>source.js</scope>
+    <description>AmaranJS User Theme</description>
+</snippet>
