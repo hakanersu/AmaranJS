@@ -1,3 +1,4 @@
+[Demo & Documentation](http://hakanersu.github.io/AmaranJS/)
 ###Minimal Setup
 Copy amaran folder in to your project folder.
 
