@@ -15,4 +15,4 @@ build
 .grunt
 
 node_modules
-amaranjs/node_modules
+amaranjs/node_modules/*
