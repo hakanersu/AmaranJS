@@ -209,3 +209,5 @@ $.amaran({
     theme:'user green',
 });
 ```
+
+Documentation not ready as MD i will add soon.
