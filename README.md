@@ -176,3 +176,36 @@ e.g For envelope icon just pass ```icons:'fa fa-envelope'```
     color:#fff;
 }
 ```
+Just change ```<VARIATION NAME>``` with your variation name and ```<COLOR CODE>``` with your color code and add in your main css file or you can add inside ```amaran/css/theme/default.css```
+e.q
+
+```
+.amaran.default.pink p.bold{
+    color:#D704DE;
+}
+.amaran.default.pink .icon {
+    background-color:#D704DE;
+    color:#fff;
+}
+```
+
+// image will include here
+
+**user theme**
+
+"user" theme has 4 variations
+
+// image will include here
+
+Usage :
+
+```
+$.amaran({
+    content:{
+        img:'http://api.randomuser.me/0.2/portraits/men/36.jpg',
+        user:'John Walker',
+        message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ducimus?'
+       },
+    theme:'user green',
+});
+```
