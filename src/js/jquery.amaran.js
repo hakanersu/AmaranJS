@@ -174,13 +174,6 @@
 		blurTheme:function(data){
 			return '<h2>'+data.title+'</h2><div class="message">'+data.message+'</div>';
 		},
-		metroTheme:function(data){
-			if($('.metroWrapper').length=='0'){
-				$('.amaran-wrapper').addClass('metroWrapper').css('background',data.background);
-			}
-			var metroContent	='<div class="content"><span class="metro-close"  onclick="$.amaran.close()"><i class="fa fa-times-circle"></i></span>'+data.message+'<div class="metro-buttons">'+data.buttons+'</div></div>'
-			return metroContent;
-		},
 		roundedTheme:function(data){
 			return "<img src='"+data.img+"' alt='user'>";
 		},
