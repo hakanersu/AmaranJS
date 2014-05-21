@@ -1,4 +1,8 @@
 [Demo & Documentation](http://hakanersu.github.io/AmaranJS/)
+### TODO
+* Default theme will change to http://codepen.io/hakanersu/pen/Dxatp
+* Callback functions will added to themes.
+
 ###Minimal Setup
 Copy amaran folder in to your project folder.
 
