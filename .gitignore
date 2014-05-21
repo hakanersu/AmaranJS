@@ -7,7 +7,9 @@ lcov.info
 *.out
 *.pid
 *.gz
-
+index.html
+index.htm
+main.js
 pids
 logs
 results
