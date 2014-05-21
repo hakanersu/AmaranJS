@@ -1,4 +1,9 @@
 [Demo & Documentation](http://hakanersu.github.io/AmaranJS/)
+
+### Important Change v0.2.0
+* "default" theme changed to "awesome"
+* Old default theme changed to "default" theme aka http://codepen.io/hakanersu/pen/Dxatp
+
 ### TODO
 * Default theme will change to http://codepen.io/hakanersu/pen/Dxatp
 * Callback functions will added to themes.
