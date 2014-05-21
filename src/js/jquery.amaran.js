@@ -164,7 +164,10 @@
 		}	
 	};	
 	var themes={
-		defaultTheme:function(data){
+        defaultTheme:function(data){
+            return "<div class='default-spinner'><span></span></div><div class='default-message'><span>"+data.message+"</span></div>";
+        },
+		awesomeTheme:function(data){
 			return '<i class="icon '+data.icon+' icon-large"></i><p class="bold">'+data.message+'</p><p><span>'+data.size+'</span><span class="light">'+data.file+'</span></p>';
 		},
 		userTheme:function(data){

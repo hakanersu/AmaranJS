@@ -1,101 +1,59 @@
 .amaran.default{
-	width:300px;
-	min-height: 65px;
-	background: #f3f3f3;
-	color:#222;
-	margin:15px;
-	padding-left:70px;
-	padding-right:5px;
-	padding-top:5px;
-	padding-bottom:5px;
-	font-family:'Open Sans',Helvetica,Arial;
-	font-size:16px;
-	font-weight:600;
-	box-shadow:1px 1px 1px #000;
-}
-.amaran.default .icon{
-	width:50px;
-	height:50px;
-	position: absolute;
-	top:50%;
-	left:10px;
-	background: #000;
-	margin-top:-25px;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 50px; 
-	font-size:22px;
-}
-
-.amaran.default p {
-	padding:0;margin:0;
-}
-.amaran.default p.bold {}
-.amaran.default p span{
-	font-weight: 300;
+    width:300px;
+    min-height: 45px;
+    background:#1B1E24;
+    background: -webkit-linear-gradient(left, #111213, #111213 15%, #1B1E24 15%, #1B1E24);
+    background: -moz-linear-gradient(left, #111213, #111213 15%, #1B1E24 15%, #1B1E24);
+    background: -o-linear-gradient(left, #111213, #111213 15%, #1B1E24 15%, #1B1E24);
+    background: -ms-linear-gradient(left, #111213, #111213 15%, #1B1E24 15%, #1B1E24);
+    background: linear-gradient(left, #111213, #111213 15%, #1B1E24 15%, #1B1E24);
+    color:#fff;
+    font-family:'Open Sans',Helvetica,Arial;
+    font-size:13px;
+    font-weight:300;
+    margin:0 5px 0 5px;
+    border-radius:0;
+    overflow:hidden;
+    border-bottom:1px solid #111213;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
 }
-.amaran.default p span.light {
-	font-size:13px;
-	display: block;
-	color:#777;
+.amaran.default:first-child {
+    border-radius:6px;
 }
-.amaran.default.error{}
-.amaran.default.warning{}
+.amaran.default:last-child {
+    margin-bottom:8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom:none;
+}
+.amaran.default .default-spinner {
+    width:45px;min-height:45px;display:block;float:left;position:relative;
 
-/* OK*/
-.amaran.default.ok p.bold{
-	color:#178B13;
 }
-.amaran.default.ok .icon {
-	background-color:#178B13;
-	color:#fff;
+.amaran.default .default-spinner span{
+    width:18px;
+    height:18px;
+    background:#27ae60;
+    display:block;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-11px;
+    margin-top:-9px;
 }
-/* ERROR */
-.amaran.default.error p.bold{
-	color:#D82222;
+.amaran.default .default-message {
+    float:left;
+
 }
-.amaran.default.error .icon {
-	background-color:#D82222;
-	color:#fff;
+.amaran.default .default-message span {
+    padding:3px;
+    line-height:43px;
 }
-/* WARNING */
-.amaran.default.warning p.bold{
-	color:#9F6000;
-}
-.amaran.default.warning .icon {
-	background-color:#9F6000;
-	color:#fff;
-}
-/* YELLOW */
-.amaran.default.yellow p.bold{
-	color:#CFA846;
-}
-.amaran.default.yellow .icon {
-	background-color:#CFA846;
-	color:#fff;
-}
-/* BLUE */
-.amaran.default.blue p.bold{
-	color:#2980b9;
-}
-.amaran.default.blue .icon {
-	background-color:#2980b9;
-	color:#fff;
-}
-/* GREEN */
-.amaran.default.green p.bold{
-	color:#27ae60;
-}
-.amaran.default.green .icon {
-	background-color:#27ae60;
-	color:#fff;
-}
-/* PURPLE */
-.amaran.default.purple p.bold{
-	color:#5B54AA;
-}
-.amaran.default.purple .icon {
-	background-color:#5B54AA;
-	color:#fff;
+.amaran.default .default-message:after {
+    clear:both;
 }
