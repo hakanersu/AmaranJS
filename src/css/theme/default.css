@@ -11,24 +11,12 @@
     font-family:'Open Sans',Helvetica,Arial;
     font-size:13px;
     font-weight:300;
-    margin:0 5px 0 5px;
+    margin:0 5px 5px 5px;
     border-radius:0;
     overflow:hidden;
     border-bottom:1px solid #111213;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    border-radius: 6px;
 
-}
-.amaran.default:first-child {
-    border-radius:6px;
-}
-.amaran.default:last-child {
-    margin-bottom:8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom:none;
 }
 .amaran.default .default-spinner {
     width:45px;min-height:45px;display:block;float:left;position:relative;
