@@ -1,0 +1,37 @@
+{
+    "name": "AmaranJS",
+    "title": "AmaranJS Stylish Notifications",
+    "description": "Easy and stylish notifications.",
+    "keywords": [
+        "notification",
+        "animation",
+        "sylish",
+        "jquery",
+        "plugin"
+    ],
+    "version": "0.1.5",
+    "author": {
+        "name": "Hakan ERSU",
+        "url": "http://blog.hakanersu.com/"
+    },
+    "maintainers": [
+        {
+            "name": "Hakan ERSU",
+            "email": "hakanersu@gmail.com",
+            "url": "http://blog.hakanersu.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/hakanersu/AmaranJS/issues",
+    "homepage": "http://hakanersu.github.io/AmaranJS/",
+    "docs": "http://hakanersu.github.io/AmaranJS/",
+    "download": "https://github.com/hakanersu/AmaranJS/",
+    "dependencies": {
+        "jquery": ">=1.9"
+    }
+}

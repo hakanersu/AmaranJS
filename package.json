@@ -3,10 +3,6 @@
   "title": "AmaranJS",
   "description": "Stylish Notifications",
   "author": "Hakan ERSU",
-  "homepage": "http://www.hakanersu.com/",
-  "version": "0.0.1",
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.6.2"
-  }
+  "homepage": "http://hakanersu.github.io/AmaranJS/",
+  "version": "0.1.9"
 }
