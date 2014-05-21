@@ -73,7 +73,7 @@
 				wT:wrapperOffset.top,
 				wL:wrapperOffset.left,
 				wH:$(this.config.wrapper).outerHeight(),
-				wW:$(this.config.wrapper).outerWidth(),
+				wW:$(this.config.wrapper).outerWidth()
 			};
 		},
 		getPosition:function(element,effect){
@@ -103,8 +103,7 @@
 						move: 	{left:0},
 						hide: 	{left:(parca=='right') ? p.w*1.5 : $(window).width()},
 						height: p.h
-					},
-
+					}
 				};
 			return v[effect] ? v[effect] : 0;
 		},
