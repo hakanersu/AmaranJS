@@ -1,3 +1,6 @@
+### You can request themes
+Just send me designs
+
 [Demo & Documentation](http://hakanersu.github.io/AmaranJS/)
 
 ### Important Change v0.2.0
