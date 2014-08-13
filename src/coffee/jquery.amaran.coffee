@@ -20,6 +20,8 @@
           closeOnClick: true
           closeButton: false
           clearAll: false
+          cssanimationIn: false
+          cssanimationOut: false
           beforeStart: ->
               
           afterEnd: ->
@@ -94,30 +96,52 @@
         # Lets decide which effect we will use    
         animation: (effect, element, work) ->
             return @fade(element, work)  if effect is "fadeIn" or effect is "fadeOut"
+            return @cssanimate(element,work) if effect is "show"
             return @slide effect, element, work
-        
+
         fade: (element,work) ->
             # Fade is easy one
             # if work is show just fadein element
             if work is "show"
-                element.fadeIn()
+                if @.config.cssanimationIn
+                    element.addClass('animated '+@.config.cssanimationIn).show()
+                else
+                    element.fadeIn()
             else
-                # If work is not show basic fadeOut effect not good for us
-                # we have to set height and when opacity reach 0 we have to set
-                # height 0 otherwise when we remove element other elements seems like jumps down
-                # lets create this effect
-                element.css
-                    "min-height": 0
-                    "height": element.outerHeight()
-                element.animate
-                    opacity: 0
-                , ->
+                if @.config.cssanimationOut
+                    element.addClass('animated '+@.config.cssanimationOut)
+                    element.css
+                        "min-height": 0
+                        "height": element.outerHeight()
                     element.animate
-                        height: 0
+                        opacity: 0
                     , ->
-                        element.remove()
+                        element.animate
+                            height: 0
+                        , ->
+                            element.remove()
+                            return
                         return
                     return
+                else
+                    # If work is not show basic fadeOut effect not good for us
+                    # we have to set height and when opacity reach 0 we have to set
+                    # height 0 otherwise when we remove element other elements seems like jumps down
+                    # lets create this effect
+                    element.css
+                        "min-height": 0
+                        "height": element.outerHeight()
+                    element.animate
+                        opacity: 0
+                    , ->
+                        element.animate
+                            height: 0
+                        , ->
+                            element.remove()
+                            return
+                        return
+                    return
+
                 return
         # why this method ?
         # i need elements width for calculation before show

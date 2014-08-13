@@ -18,4 +18,7 @@ build
 
 node_modules
 amaranjs/node_modules/*
+.sass-cache
+.sass-cache/*
+/node_modules/*
 /.idea/
