@@ -15,14 +15,11 @@ gulp.task('css',function(){
         //.pipe(gulp.dest('dist/css'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(minifycss())
+        .pipe(concat('amaran.min.css'))
         .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('themes',function(){
-    gulp.src('dist/css/**/*.theme.min.css')
-        .pipe(concat('all-themes.min.css'))
-        .pipe(gulp.dest('dist/css'));
-});
+
 
 // Gulp coffee task
 gulp.task('js',function(){
@@ -35,7 +32,7 @@ gulp.task('js',function(){
 
 // Gulp watch task
 gulp.task('watch',function(){
-    gulp.watch('src/sass/**/*.sass',['css','themes']);
+    gulp.watch('src/sass/**/*.sass',['css']);
     gulp.watch('src/coffee/**/*.coffee',['js']);
 });
 

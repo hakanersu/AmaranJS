@@ -299,14 +299,11 @@
         userTheme: (data) ->
             "<div class=\"icon\"><img src=\"" + data.img + "\" alt=\"\" /></div><div class=\"info\"><b>" + data.user + "</b>" + data.message + "</div>"
 
-        blurTheme: (data) ->
-            "<h2>" + data.title + "</h2><div class=\"message\">" + data.message + "</div>"
+        colourfulTheme: (data) ->
+            color = data.color  if typeof (data.color) isnt "undefined"
+            bgcolor = data.bgcolor  if typeof (data.bgcolor) isnt "undefined"
+            "<div class='colourfull-inner' style='background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>"
 
-        roundedTheme: (data) ->
-            "<img src='" + data.img + "' alt='user'>"
-
-        readmoreTheme: (data) ->
-            "<img src=\"" + data.img + "\" alt=\"\" class=\"readmore-user\"><div class=\"title\">" + data.title + "</div><div class=\"content\">" + data.content + "</div>"            
     $.amaran = (options) ->
         amaran = new Plugin(options)
         amaran
