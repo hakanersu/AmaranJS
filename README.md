@@ -1,3 +1,7 @@
+New version coming soon with lots of changes.
+https://github.com/hakanersu/AmaranJS/tree/coffee-sass
+
+
 [Demo & Documentation](http://hakanersu.github.io/AmaranJS/)
 
 ### Important Change v0.2.0
