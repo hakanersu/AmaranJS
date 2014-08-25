@@ -2,6 +2,8 @@ AmaranJS jQuery Notification Plugin
 ============
 Nice, sleek and stylish notifications.
 
+
+
 ## What is new and What is changed
 
 
@@ -9,6 +11,15 @@ Nice, sleek and stylish notifications.
  * All javascript codes ported to coffee and css to sass.
  * [Animate.css](http://daneden.github.io/animate.css/) and options added for alternative css3 effects.
 
+## Some Features
+
+Here is the some basic features of AmaranJS.But i  recommend that review the examples and check demos.
+
+ * Easy notification creation.
+ * Unique notification animations.
+ * Included stylish themes.
+ * Easily adapt your own themes.
+ * Callbacks
 
 ## Installation
 
@@ -64,9 +75,10 @@ So minimalistic setup look like this
 ## Usage
 AmaranJS included 4 theme (i will include more).
 
-Very basic usage not include any theme
+Very basic usage not include any theme.
 ```javascript
 $(function(){
     $.amaran({'message':'My first example!'});
 });
 ```
+If you want to use included themes just
