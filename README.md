@@ -3,7 +3,7 @@ AmaranJS jQuery Notification Plugin
 Nice, sleek and stylish notifications.
 
 ## What is new and What is changed
-============
+
 
  * Blur Theme ,Rounded Theme and Read More theme removed.
  * All javascript codes ported to coffee and css to sass.
@@ -33,6 +33,7 @@ Place Amaran JS after jQuery
 ```html
 <script src="/js/jquery.amaran.js"></script>
 ```
+So minimalistic setup look like this
 
 ```html
 <!DOCTYPE html>
@@ -48,3 +49,5 @@ Place Amaran JS after jQuery
 </body>
 </html>
 ```
+
+### Optional Steps
