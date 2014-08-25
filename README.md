@@ -29,7 +29,6 @@ jQuery required for **Amaran JS**.If you already have jquery.js on your site, do
 
 ```html
 <link rel="stylesheet" href="/css/amaran.min.css">
-
 ```
 You can add jQuery via Google CDN
 
