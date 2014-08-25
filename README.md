@@ -57,7 +57,7 @@ So minimalistic setup look like this
 ```html
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 ```
- * If you want to use Animate.css effects you have to include Animate.css. Animate.css already included dist/css folder.
+ * If you want to use [Animate.css](http://daneden.github.io/animate.css/) effects you have to include [Animate.css](http://daneden.github.io/animate.css/) . [Animate.css](http://daneden.github.io/animate.css/) already included dist/css folder.
 ```html
 <link rel="stylesheet" href="/css/animate.min.css">
 ```
