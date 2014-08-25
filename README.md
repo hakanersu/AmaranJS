@@ -51,3 +51,13 @@ So minimalistic setup look like this
 ```
 
 ### Optional Steps
+
+ * Awesome theme uses fontawesome if you want to use  awesome theme you have to include fontawesome.
+
+```html
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+```
+ * If you want to use Animate.css effects you have to include Animate.css. Animate.css already included dist/css folder.
+```html
+<link rel="stylesheet" href="/css/animate.min.css">
+```
