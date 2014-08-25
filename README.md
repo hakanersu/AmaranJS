@@ -73,7 +73,7 @@ So minimalistic setup look like this
 <link rel="stylesheet" href="/css/animate.min.css">
 ```
 ## Usage
-AmaranJS included 4 theme (i will include more).
+AmaranJS included 4 theme (for now).
 
 Very basic usage not include any theme.
 ```javascript
@@ -81,4 +81,17 @@ $(function(){
     $.amaran({'message':'My first example!'});
 });
 ```
-If you want to use included themes just
+If you want to use included themes just you have to pass content object with desired fields.
+Awesome theme usage.
+
+```javascript
+$.amaran({
+    content:{
+        message:'My first funcy example!',
+        size:'1.4 GB',
+        file:'my_birthday.mp4',
+        icon:'fa fa-download'
+    },
+    theme:'awesome ok'
+});
+```
