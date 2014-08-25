@@ -67,19 +67,20 @@ So minimalistic setup look like this
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 ```
  * If you want to use [Animate.css](http://daneden.github.io/animate.css/) effects you have to include [Animate.css](http://daneden.github.io/animate.css/) . [Animate.css](http://daneden.github.io/animate.css/) already included dist/css folder.
+ 
 ```html
 <link rel="stylesheet" href="/css/animate.min.css">
 ```
 ## Usage
 AmaranJS included 4 theme (for now).
 
-Very basic usage not include any theme.
+Very basic usage ,not include any theme.
 ```javascript
 $(function(){
     $.amaran({'message':'My first example!'});
 });
 ```
-If you want to use included themes just you have to pass content object with desired fields.
+If you want to use included themes , you have to pass content object with desired fields.
 
 Awesome theme usage.
 
@@ -95,4 +96,5 @@ $.amaran({
 });
 
 ```
-[Basic Usage Documentation](http://hakanersu.github.io/AmaranJS/amaranjs/#basic-usage) (Documentation a bit outdated)
+[Usage Documentation](http://hakanersu.github.io/AmaranJS/amaranjs/#basic-usage) 
+Documentation a bit outdated.
