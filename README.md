@@ -61,3 +61,12 @@ So minimalistic setup look like this
 ```html
 <link rel="stylesheet" href="/css/animate.min.css">
 ```
+## Usage
+AmaranJS included 4 theme (i will include more).
+
+Very basic usage not include any theme
+```javascript
+$(function(){
+    $.amaran({'message':'My first example!'});
+});
+```
