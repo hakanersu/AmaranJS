@@ -2,8 +2,6 @@ AmaranJS jQuery Notification Plugin
 ============
 Nice, sleek and stylish notifications.
 
-
-
 ## What is new and What is changed
 
 
@@ -82,6 +80,7 @@ $(function(){
 });
 ```
 If you want to use included themes just you have to pass content object with desired fields.
+
 Awesome theme usage.
 
 ```javascript
@@ -94,4 +93,6 @@ $.amaran({
     },
     theme:'awesome ok'
 });
+
 ```
+[Basic Usage Documentation](http://hakanersu.github.io/AmaranJS/amaranjs/#basic-usage) (Documentation a bit outdated)
