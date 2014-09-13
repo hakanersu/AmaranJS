@@ -95,5 +95,5 @@ $.amaran({
 });
 
 ```
-[Usage Documentation](http://hakanersu.github.io/AmaranJS/amaranjs/#basic-usage) 
+[Usage Documentation](http://hakanersu.github.io/AmaranJS/) 
 Documentation a bit outdated.
