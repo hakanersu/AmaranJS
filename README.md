@@ -2,6 +2,8 @@ AmaranJS jQuery Notification Plugin
 ============
 Nice, sleek and stylish notifications.
 
+[Demo && Documentation](http://hakanersu.github.io/AmaranJS/) 
+
 ## What is new and What is changed
 
 
@@ -95,5 +97,5 @@ $.amaran({
 });
 
 ```
-[Usage Documentation](http://hakanersu.github.io/AmaranJS/) 
-Documentation a bit outdated.
+
+
