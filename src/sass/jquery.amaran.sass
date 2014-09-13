@@ -1,0 +1,57 @@
+@charset "UTF-8"
+.amaran-wrapper *
+    box-sizing: border-box
+    
+.amaran-wrapper
+    position: fixed
+    
+    &.top
+        top: 0
+        bottom: auto
+        
+    &.bottom
+        bottom: 0
+        top: auto
+        
+    &.left
+        left: 0
+        
+    &.right
+        right: 0
+        left: auto
+        
+    &.center
+        left: 0
+        right: auto
+  
+.amaran
+    width: 200px
+    display: block
+    background: rgba(0, 0, 0, 0.7)
+    padding: 3px
+    color: #fff
+    border-radius: 4px
+    margin-top: 5px
+    display: none
+    font-size: 13px
+    cursor: pointer
+    position: relative
+    text-align: left
+    min-height: 50px
+    margin: 10px
+
+
+.amaran-close
+    position: absolute
+    top: 2px
+    right: 2px
+    display: block
+    width: 20px
+    height: 20px
+
+    &:before
+        content: 'x'
+        color: #fff
+        font-weight: bold
+        font-family: Arial, sans-serif
+        font-size: 18px
