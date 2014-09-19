@@ -90,9 +90,9 @@ Awesome theme usage.
 ```javascript
 $.amaran({
     content:{
-        message:'My first funcy example!',
-        size:'1.4 GB',
-        file:'my_birthday.mp4',
+        title:'My first funcy example!',
+        message:'1.4 GB',
+        info:'my_birthday.mp4',
         icon:'fa fa-download'
     },
     theme:'awesome ok'
