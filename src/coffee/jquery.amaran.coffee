@@ -267,6 +267,11 @@
         close: ->
             # bu means this in my language
             bu = this
+            
+            $("[data-amaran-close]").on "click", ->
+                bu.animation bu.config.outEffect, $(this).closest("div.amaran"), "hide"
+                return
+
             # if closeOnClick and closeButton not setted
             if not @config.closeOnClick and @config.closeButton
                 bu.animation bu.config.outEffect , $(this).parent("div.amaran"), "hide"
