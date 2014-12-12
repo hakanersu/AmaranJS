@@ -5,7 +5,9 @@ var gulp            = require("gulp"),
     minifycss       = require('gulp-minify-css'),
     concat          = require('gulp-concat'),
     uglify          = require('gulp-uglify'),
-    coffee          = require('gulp-coffee');
+    coffee          = require('gulp-coffee'),
+    notify          = require('gulp-notify'),
+    plumber         = require('gulp-plumber');
 
 // Gulp sass task
 gulp.task('css',function(){
@@ -24,10 +26,14 @@ gulp.task('css',function(){
 // Gulp coffee task
 gulp.task('js',function(){
      gulp.src("src/coffee/**/*.coffee")
+         .pipe(plumber())
          .pipe(coffee())
+         .pipe(concat('jquery.amaran.js'))
+         .pipe(gulp.dest('dist/js'))
+         .pipe(rename({ suffix: '.min' }))
          .pipe(uglify())
-         .pipe(concat('jquery.amaran.min.js'))
-         .pipe(gulp.dest('dist/js'));
+         .pipe(gulp.dest('dist/js'))
+         .pipe(notify('All JS Works Done!'));
 });
 
 // Gulp watch task

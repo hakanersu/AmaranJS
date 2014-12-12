@@ -1,18 +1,26 @@
 {
   "name": "AmaranJS",
   "title": "AmaranJS",
-  "description": "Stylish Notifications",
+  "description": "Nice, sleek and stylish notifications.",
   "author": "Hakan ERSU",
   "homepage": "http://hakanersu.github.io/AmaranJS/",
   "version": "0.5.0",
   "devDependencies": {
-    "gulp": "~3.8.7",
-    "gulp-ruby-sass": "~0.7.1",
-    "gulp-autoprefixer": "0.0.8",
-    "gulp-rename": "~1.2.0",
-    "gulp-minify-css": "~0.3.7",
-    "gulp-concat": "~2.3.4",
-    "gulp-uglify": "~0.3.1",
-    "gulp-coffee": "~2.1.1"
+      "gulp" : "*",
+      "gulp-ruby-sass" : "*",
+      "gulp-autoprefixer" : "*",
+      "gulp-minify-css" : "*",
+      "gulp-jshint" : "*",
+      "gulp-uglify" : "*",
+      "gulp-imagemin" : "*",
+      "gulp-rename" : "*",
+      "gulp-clean" : "*",
+      "gulp-concat" : "*",
+      "gulp-notify" : "*",
+      "gulp-cache" : "*",
+      "gulp-livereload" : "*",
+      "tiny-lr" : "*",
+      "gulp-coffee":"*",
+      "gulp-plumber":"*"
   }
 }
