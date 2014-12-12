@@ -16,6 +16,10 @@ p{
 a,a:hover,a:focus,a:visited {
     text-decoration: none;
 }
+.container {
+	width:1000px;
+	margin:0 auto;
+}
 a#logo {
     font-size:40px;
     color: rgba(0, 0, 0, 0.7);
