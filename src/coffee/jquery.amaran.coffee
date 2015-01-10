@@ -94,7 +94,13 @@
             # OnClick callback
             if @config.onClick
                 bu = this
-                $(element).on "click", ->
+                $(element).on "click",(e) ->
+                    # Quick fix when clicked close button it must prevent
+                    # on click event.Thanks Sibin Xavier to report.
+                    if $(e.target).is(".amaran-close")
+                        e.preventDefault()
+                        return
+
                     bu.config.onClick()
                     return
             # If its not sticky hide after delay

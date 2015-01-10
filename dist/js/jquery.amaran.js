@@ -79,7 +79,11 @@
         this.animation(this.config.inEffect, element, "show");
         if (this.config.onClick) {
           bu = this;
-          $(element).on("click", function() {
+          $(element).on("click", function(e) {
+            if ($(e.target).is(".amaran-close")) {
+              e.preventDefault();
+              return;
+            }
             bu.config.onClick();
           });
         }
