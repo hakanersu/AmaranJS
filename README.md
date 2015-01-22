@@ -4,6 +4,7 @@ Nice, sleek and stylish notifications.
 
 [Demo & Documentation](http://hakanersu.github.io/AmaranJS/) 
 
+> [AmaranJS Laravel 5 Package](https://github.com/hakanersu/amaran-laravel)
 You can test  AmaranJS & Animate.css effects [ Test Tool ](http://codepen.io/hakanersu/pen/iqzJA) 
 
 ## What is new and What is changed
