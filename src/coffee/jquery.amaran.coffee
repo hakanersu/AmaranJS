@@ -87,7 +87,6 @@
             # Clear if clearAll option true
             $(".amaran").remove()  if @config.clearAll
             # Finally lets create element and append to wrapper.
-            #console.log innerWrapper
             element = $("<div>", amaranObject).appendTo(innerWrapper)
             @centerCalculate wrapper, innerWrapper  if elClass[0] is "center"
             @animation @config.inEffect, element, "show"
@@ -162,18 +161,19 @@
                             height: 0
                         , ->
                             bu.removeIt(element)
-                            bu.config.afterEnd()
+                            #bu.config.afterEnd()
                             return
                         return
                     return
 
                 return
         removeIt: (element) ->
+            clearTimeout(@.timeout)
             element.remove()
             wrapper = $(@config.wrapper+"."+@config.position.split(" ")[0]+"."+@config.position.split(" ")[1])
             innerWrapper = wrapper.find ".amaran-wrapper-inner"
             @centerCalculate wrapper, innerWrapper  if @config.position.split(" ")[0] is "center"
-            #console.log "Element removed."
+            @.config.afterEnd()           
             return
         # why this method ?
         # i need elements width for calculation before show
@@ -294,7 +294,7 @@
                 , ->
                     #element.remove()
                     bu.removeIt(element)
-                    bu.config.afterEnd()
+                    #bu.config.afterEnd()
         # Lets remove/close element
         close: ->
             bu = this
@@ -307,7 +307,6 @@
             # lets set wrapper
             if not @config.closeOnClick and @config.closeButton
                 bu.animation bu.config.outEffect , $(this).parent("div.amaran"), "hide"
-                console.log "Close False Button True"
                 return
 
             # If closeOnClick setted
@@ -319,7 +318,7 @@
             return
         hideDiv: (element) ->
             bu = this
-            setTimeout (->
+            bu.timeout=setTimeout (->
                 bu.animation bu.config.outEffect, element, "hide"
                 return
             ), bu.config.delay

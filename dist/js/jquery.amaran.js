@@ -147,7 +147,6 @@
                 height: 0
               }, function() {
                 bu.removeIt(element);
-                bu.config.afterEnd();
               });
             });
             return;
@@ -156,12 +155,14 @@
       },
       removeIt: function(element) {
         var innerWrapper, wrapper;
+        clearTimeout(this.timeout);
         element.remove();
         wrapper = $(this.config.wrapper + "." + this.config.position.split(" ")[0] + "." + this.config.position.split(" ")[1]);
         innerWrapper = wrapper.find(".amaran-wrapper-inner");
         if (this.config.position.split(" ")[0] === "center") {
           this.centerCalculate(wrapper, innerWrapper);
         }
+        this.config.afterEnd();
       },
       getWidth: function(el) {
         var newEl, newElWidth;
@@ -262,8 +263,7 @@
           }).animate({
             height: 0
           }, function() {
-            bu.removeIt(element);
-            return bu.config.afterEnd();
+            return bu.removeIt(element);
           });
         }
       },
@@ -275,7 +275,6 @@
         });
         if (!this.config.closeOnClick && this.config.closeButton) {
           bu.animation(bu.config.outEffect, $(this).parent("div.amaran"), "hide");
-          console.log("Close False Button True");
           return;
         } else if (this.config.closeOnClick) {
           $(".amaran").on("click", function() {
@@ -286,7 +285,7 @@
       hideDiv: function(element) {
         var bu;
         bu = this;
-        setTimeout((function() {
+        bu.timeout = setTimeout((function() {
           bu.animation(bu.config.outEffect, element, "hide");
         }), bu.config.delay);
       }
