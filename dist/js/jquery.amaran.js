@@ -147,6 +147,7 @@
                 height: 0
               }, function() {
                 bu.removeIt(element);
+                bu.config.afterEnd();
               });
             });
             return;

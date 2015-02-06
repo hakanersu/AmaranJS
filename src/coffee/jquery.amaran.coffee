@@ -162,6 +162,7 @@
                             height: 0
                         , ->
                             bu.removeIt(element)
+                            bu.config.afterEnd()
                             return
                         return
                     return
