@@ -12,19 +12,18 @@ var gulp            = require("gulp"),
     notify          = require('gulp-notify'),
     plumber         = require('gulp-plumber');
 
-// Gulp sass task
-gulp.task('css',function(){
-    gulp.src("src/sass/**/*.sass")
-        .pipe(sass())
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        //.pipe(gulp.dest('dist/css'))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(minifycss())
-        .pipe(concat('amaran.min.css'))
-        .pipe(gulp.dest('dist/css'));
+gulp.task('css', function() {
+    return sass('src/sass/') 
+        .on('error', function (err) {
+            console.error('Error!', err.message);
+    })
+    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))    
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(minifycss())    
+    .pipe(concat('amaran.min.css'))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(notify('All CSS Works Done!'));
 });
-
-
 
 // Gulp coffee task
 gulp.task('js',function(){
@@ -44,5 +43,3 @@ gulp.task('watch',function(){
     gulp.watch('src/sass/**/*.sass',['css']);
     gulp.watch('src/coffee/**/*.coffee',['js']);
 });
-
-gulp.task('default',['watch']);
