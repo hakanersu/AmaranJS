@@ -314,6 +314,9 @@
           bgcolor = data.bgcolor;
         }
         return "<div class='colorful-inner' style='background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>";
+      },
+      tumblrTheme: function(data) {
+        return "<div class=\"title\">" + data.title + "</div><div class=\"content\">" + data.message + "</div>";
       }
     };
     $.amaran = function(options) {

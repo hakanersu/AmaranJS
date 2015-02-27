@@ -342,6 +342,9 @@
             bgcolor = data.bgcolor  if typeof (data.bgcolor) isnt "undefined"
             "<div class='colorful-inner' style='background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>"
 
+        tumblrTheme: (data) ->
+            "<div class=\"title\">"+data.title+"</div><div class=\"content\">"+data.message+"</div>"
+
     $.amaran = (options) ->
         amaran = new Plugin(options)
         amaran
