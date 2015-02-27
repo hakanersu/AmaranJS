@@ -32,17 +32,21 @@
         <div id="box">
             <button id="start">Start</button>
             <div id="ex">
-                <p>You can run functions after notification ends.</p>
+                <p>Tumblr theme</p>
             </div>
             <div id="pre">
                 <pre>
-$(function(){
-    $('#start').on('click',function(){
-        $.amaran({
-            'message'           :'My first example!',
-            'position'          :'top right',
-            'theme'             :'tumblr'
-        });
+$('#start').on('click',function(){
+    $.amaran({
+        'content'   :{
+           title: 'Bu bir baslık', 
+           message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, autem!'
+        },
+        'position'          :'top right',
+        'theme'             :'tumblr',
+        'sticky'            :true,
+        'closeButton'       :true,
+        'closeOnClick'      :false
     });
 });</pre>
             </div>
@@ -58,7 +62,7 @@ $(function(){
                 $.amaran({
                     'content'   :{
                        title: 'Bu bir baslık', 
-                       message:'<img src="http://semantic-ui.com/images/wireframe/image.png" style="max-height:50px"><p>Hakan ERSU<small>twitter.com/xuma</small></p>'
+                       message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, autem!'
                     },
                     'position'          :'top right',
                     'theme'             :'tumblr',
