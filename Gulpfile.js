@@ -43,3 +43,5 @@ gulp.task('watch',function(){
     gulp.watch('src/sass/**/*.sass',['css']);
     gulp.watch('src/coffee/**/*.coffee',['js']);
 });
+
+gulp.task('default',['css','js','watch']);
