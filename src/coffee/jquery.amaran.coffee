@@ -22,6 +22,7 @@
           clearAll: false
           cssanimationIn: false
           cssanimationOut: false
+          resetTimeout: false
           beforeStart: ->
               
           afterEnd: ->
@@ -103,6 +104,21 @@
                     bu.config.onClick()
                     return
             # If its not sticky hide after delay
+
+            if @config.resetTimeout
+                bu = this
+
+                $(element).on "mouseenter", ->
+                    clearTimeout bu.timeout
+
+                $(element).on "mouseleave", ->
+                    bu.timeout = setTimeout(->
+                        bu.animation bu.config.outEffect, element, "hide"
+                    , bu.config.delay)
+
+
+
+
             @hideDiv element  if @config.sticky isnt true
             return
 

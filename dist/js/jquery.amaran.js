@@ -17,6 +17,7 @@
         clearAll: false,
         cssanimationIn: false,
         cssanimationOut: false,
+        resetTimeout: false,
         beforeStart: function() {},
         afterEnd: function() {},
         onClick: function() {},
@@ -85,6 +86,17 @@
               return;
             }
             bu.config.onClick();
+          });
+        }
+        if (this.config.resetTimeout) {
+          bu = this;
+          $(element).on("mouseenter", function() {
+            return clearTimeout(bu.timeout);
+          });
+          $(element).on("mouseleave", function() {
+            return bu.timeout = setTimeout(function() {
+              return bu.animation(bu.config.outEffect, element, "hide");
+            }, bu.config.delay);
           });
         }
         if (this.config.sticky !== true) {
