@@ -83,7 +83,7 @@
         if (this.config.onClick) {
           bu = this;
           $(element).on("click", function(e) {
-            if ($(e.target).is(".amaran-close")) {
+            if ($(e.target).is(".amaran-close") || $(e.target).is('.amaran-sticky')) {
               e.preventDefault();
               return;
             }

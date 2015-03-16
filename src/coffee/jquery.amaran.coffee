@@ -98,9 +98,10 @@
             if @config.onClick
                 bu = this
                 $(element).on "click",(e) ->
+
                     # Quick fix when clicked close button it must prevent
                     # on click event.Thanks Sibin Xavier to report.
-                    if $(e.target).is(".amaran-close")
+                    if $(e.target).is(".amaran-close") or $(e.target).is('.amaran-sticky')
                         e.preventDefault()
                         return
 
@@ -374,8 +375,7 @@
             bu.timeout=setTimeout (->
                 bu.animation bu.config.outEffect, element, "hide"
                 return
-            ), bu.config.delay
-            
+            ), bu.config.delay           
             return
             
     themes =
