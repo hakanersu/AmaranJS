@@ -105,6 +105,8 @@
                     return
             # If its not sticky hide after delay
 
+            # this option must have own method.
+            # but for now i'll repeat my self
             if @config.resetTimeout
                 bu = this
 
@@ -115,9 +117,6 @@
                     bu.timeout = setTimeout(->
                         bu.animation bu.config.outEffect, element, "hide"
                     , bu.config.delay)
-
-
-
 
             @hideDiv element  if @config.sticky isnt true
             return
