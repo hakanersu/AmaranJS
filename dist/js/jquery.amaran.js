@@ -82,6 +82,9 @@
         this.animation(this.config.inEffect, element, "show");
         if (this.config.onClick) {
           bu = this;
+          $(element).css({
+            'cursor': 'default'
+          });
           $(element).on("click", function(e) {
             if ($(e.target).is(".amaran-close") || $(e.target).is('.amaran-sticky')) {
               e.preventDefault();

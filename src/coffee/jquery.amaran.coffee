@@ -97,6 +97,7 @@
             # OnClick callback
             if @config.onClick
                 bu = this
+                $(element).css({'cursor':'default'})
                 $(element).on "click",(e) ->
 
                     # Quick fix when clicked close button it must prevent
