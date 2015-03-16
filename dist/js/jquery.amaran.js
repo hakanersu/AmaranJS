@@ -8,6 +8,7 @@
         content: " ",
         delay: 3000,
         sticky: false,
+        stickyButton: false,
         inEffect: "fadeIn",
         outEffect: "fadeOut",
         theme: "default",
@@ -69,7 +70,7 @@
         }
         amaranObject = {
           "class": (this.config.themeTemplate ? "amaran " + this.config.content.themeName : (this.config.theme && !this.config.themeTemplate ? "amaran " + this.config.theme : "amaran")),
-          html: (this.config.closeButton ? "<span class=\"amaran-close\" data-amaran-close=\"true\"></span>" + message : message)
+          html: this.buildHTML(message)
         };
         if (this.config.clearAll) {
           $(".amaran").remove();
@@ -92,20 +93,51 @@
         if (this.config.resetTimeout) {
           bu = this;
           $(element).on("mouseenter", function() {
-            return clearTimeout(bu.timeout);
+            return bu.resetTimeout();
           });
           $(element).on("mouseleave", function() {
-            return bu.timeout = setTimeout(function() {
-              return bu.animation(bu.config.outEffect, element, "hide");
-            }, bu.config.delay);
+            return bu.resumeTimeout(element);
           });
         }
         if (this.config.overlay && $('.amaran-overlay').length <= 0) {
           $('body').prepend('<div class="amaran-overlay"></div>');
         }
+        if (this.config.stickyButton) {
+          bu = this;
+          $(element).find('.amaran-sticky').on('click', function() {
+            if ($(this).hasClass('sticky')) {
+              bu.resumeTimeout(element);
+              return $(this).removeClass('sticky');
+            } else {
+              bu.resetTimeout();
+              return $(this).addClass('sticky');
+            }
+          });
+        }
         if (this.config.sticky !== true) {
           this.hideDiv(element);
         }
+      },
+      resetTimeout: function() {
+        var bu;
+        bu = this;
+        return clearTimeout(bu.timeout);
+      },
+      resumeTimeout: function(element) {
+        var bu;
+        bu = this;
+        return bu.timeout = setTimeout(function() {
+          return bu.animation(bu.config.outEffect, element, "hide");
+        }, bu.config.delay);
+      },
+      buildHTML: function(message) {
+        if (this.config.closeButton) {
+          message = "<span class=\"amaran-close\" data-amaran-close=\"true\"></span>" + message;
+        }
+        if (this.config.stickyButton) {
+          message = "<span class=\"amaran-sticky\" data-amaran-sticky=\"true\"></span>" + message;
+        }
+        return message;
       },
       centerCalculate: function(wrapper, innerWrapper) {
         var topAmaranMargin, totalAmarans, totalAmaransHeight;

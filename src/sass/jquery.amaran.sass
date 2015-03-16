@@ -59,3 +59,22 @@
         font-weight: bold
         font-family: Arial, sans-serif
         font-size: 18px
+
+.amaran-sticky
+    position: absolute
+    top: 4px
+    right: 25px
+    display: block
+    width: 20px
+    height: 20px
+
+    &:before
+        content: '☉'
+        color: #fff
+        font-weight: bold
+        font-family: Arial, sans-serif
+        font-size: 18px
+
+.amaran-sticky.sticky
+    &:before        
+        color: #27ae60

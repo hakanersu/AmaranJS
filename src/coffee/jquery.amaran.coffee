@@ -13,6 +13,7 @@
           content: " "
           delay: 3000
           sticky: false
+          stickyButton: false
           inEffect: "fadeIn"
           outEffect: "fadeOut"
           theme: "default"
@@ -84,8 +85,9 @@
             # Create object for element creation
             amaranObject =
                 class: (if @config.themeTemplate then "amaran " + @config.content.themeName else (if (@config.theme and not @config.themeTemplate) then "amaran " + @config.theme else "amaran"))
-                html: (if (@config.closeButton) then "<span class=\"amaran-close\" data-amaran-close=\"true\"></span>" + message else message)
-                
+                #html: (if (@config.closeButton) then "<span class=\"amaran-close\" data-amaran-close=\"true\"></span>" + message else message)
+                html: @.buildHTML message
+
             # Clear if clearAll option true
             $(".amaran").remove()  if @config.clearAll
             # Finally lets create element and append to wrapper.
@@ -112,19 +114,47 @@
                 bu = this
 
                 $(element).on "mouseenter", ->
-                    clearTimeout bu.timeout
+                    bu.resetTimeout()
 
                 $(element).on "mouseleave", ->
-                    bu.timeout = setTimeout(->
-                        bu.animation bu.config.outEffect, element, "hide"
-                    , bu.config.delay)
+                    bu.resumeTimeout(element)
 
             if @config.overlay && $('.amaran-overlay').length<=0
                 $('body').prepend('<div class="amaran-overlay"></div>')
 
+            if @config.stickyButton
+                bu = this
+
+                $(element).find('.amaran-sticky').on 'click', ->
+                    if $(this).hasClass('sticky')
+                        bu.resumeTimeout element
+                        $(this).removeClass 'sticky'
+                    else
+                        bu.resetTimeout()
+                        $(this).addClass 'sticky'
+
             @hideDiv element  if @config.sticky isnt true
             return
 
+        resetTimeout: ->
+            bu = this
+            clearTimeout bu.timeout
+        
+        resumeTimeout: (element) ->
+            bu = this
+            bu.timeout = setTimeout(->
+                    bu.animation bu.config.outEffect, element, "hide"
+                , bu.config.delay)   
+        
+        buildHTML: (message) ->
+            if @.config.closeButton
+                message = "<span class=\"amaran-close\" data-amaran-close=\"true\"></span>" + message;
+
+            if  @.config.stickyButton
+                message = "<span class=\"amaran-sticky\" data-amaran-sticky=\"true\"></span>" + message;
+
+            return message       
+              
         centerCalculate: (wrapper,innerWrapper) ->
             totalAmarans = innerWrapper.find(".amaran").length
             totalAmaransHeight = innerWrapper.height()
