@@ -1,5 +1,5 @@
 #!
-# * jQuery AmaranJS Plugin v0.5.1
+# * jQuery AmaranJS Plugin v0.5.4
 # * https://github.com/hakanersu/AmaranJS
 # *
 # * Copyright 2013, 2014 Hakan ERSU
