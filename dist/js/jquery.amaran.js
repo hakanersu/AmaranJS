@@ -18,6 +18,7 @@
         cssanimationIn: false,
         cssanimationOut: false,
         resetTimeout: false,
+        overlay: false,
         beforeStart: function() {},
         afterEnd: function() {},
         onClick: function() {},
@@ -99,6 +100,9 @@
             }, bu.config.delay);
           });
         }
+        if (this.config.overlay && $('.amaran-overlay').length <= 0) {
+          $('body').prepend('<div class="amaran-overlay"></div>');
+        }
         if (this.config.sticky !== true) {
           this.hideDiv(element);
         }
@@ -175,6 +179,11 @@
           this.centerCalculate(wrapper, innerWrapper);
         }
         this.config.afterEnd();
+        if (this.config.overlay && $('.amaran').length === 0) {
+          $('.amaran-overlay').fadeOut(400, function() {
+            return $(this).remove();
+          });
+        }
       },
       getWidth: function(el) {
         var newEl, newElWidth;

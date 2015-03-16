@@ -23,6 +23,7 @@
           cssanimationIn: false
           cssanimationOut: false
           resetTimeout: false
+          overlay: false
           beforeStart: ->
               
           afterEnd: ->
@@ -118,6 +119,9 @@
                         bu.animation bu.config.outEffect, element, "hide"
                     , bu.config.delay)
 
+            if @config.overlay && $('.amaran-overlay').length<=0
+                $('body').prepend('<div class="amaran-overlay"></div>')
+
             @hideDiv element  if @config.sticky isnt true
             return
 
@@ -188,7 +192,11 @@
             wrapper = $(@config.wrapper+"."+@config.position.split(" ")[0]+"."+@config.position.split(" ")[1])
             innerWrapper = wrapper.find ".amaran-wrapper-inner"
             @centerCalculate wrapper, innerWrapper  if @config.position.split(" ")[0] is "center"
-            @.config.afterEnd()           
+            @.config.afterEnd()
+            if @config.overlay and $('.amaran').length==0
+                $('.amaran-overlay').fadeOut 400, ->
+                    $(this).remove()           
+
             return
         # why this method ?
         # i need elements width for calculation before show
@@ -337,6 +345,7 @@
                 bu.animation bu.config.outEffect, element, "hide"
                 return
             ), bu.config.delay
+            
             return
             
     themes =
