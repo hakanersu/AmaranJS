@@ -362,14 +362,17 @@
         return "<div class=\"icon\"><img src=\"" + data.img + "\" alt=\"\" /></div><div class=\"info\"><b>" + data.user + "</b>" + data.message + "</div>";
       },
       colorfulTheme: function(data) {
-        var bgcolor, color;
+        var bgcolor, color, border;
         if (typeof data.color !== "undefined") {
           color = data.color;
         }
         if (typeof data.bgcolor !== "undefined") {
           bgcolor = data.bgcolor;
         }
-        return "<div class='colorful-inner' style='background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>";
+        if (typeof data.border !== "undefined") {
+          border = data.border;
+        }
+        return "<div class='colorful-inner' style='border:" + data.border + ";background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>";
       },
       tumblrTheme: function(data) {
         return "<div class=\"title\">" + data.title + "</div><div class=\"content\">" + data.message + "</div>";
