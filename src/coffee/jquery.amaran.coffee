@@ -89,7 +89,7 @@
                 html: @.buildHTML message
 
             # Clear if clearAll option true
-            $(".amaran").remove()  if @config.clearAll
+            $(".amaran,.amaran-overlay").remove()  if @config.clearAll
             # Finally lets create element and append to wrapper.
             element = $("<div>", amaranObject).appendTo(innerWrapper)
             @centerCalculate wrapper, innerWrapper  if elClass[0] is "center"
