@@ -2,7 +2,7 @@ AmaranJS jQuery Notification Plugin
 ============
 Nice, sleek and stylish notifications.
 
-[Demo & Documentation](http://hakanersu.github.io/AmaranJS/) 
+[Demo & Documentation](http://www.amaranjs.com/) 
 
 > [AmaranJS Laravel 5 Package](https://github.com/hakanersu/amaran-laravel)
 
