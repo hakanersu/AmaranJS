@@ -20,6 +20,7 @@
         cssanimationOut: false,
         resetTimeout: false,
         overlay: false,
+        overlayColor: 'rgba(153,204,51,.9)',
         beforeStart: function() {},
         afterEnd: function() {},
         onClick: function() {},
@@ -73,7 +74,7 @@
           html: this.buildHTML(message)
         };
         if (this.config.clearAll) {
-          $(".amaran").remove();
+          $(".amaran,.amaran-overlay").remove();
         }
         element = $("<div>", amaranObject).appendTo(innerWrapper);
         if (elClass[0] === "center") {
@@ -103,7 +104,7 @@
           });
         }
         if (this.config.overlay && $('.amaran-overlay').length <= 0) {
-          $('body').prepend('<div class="amaran-overlay"></div>');
+          $('body').prepend('<div class="amaran-overlay" style="background-color:' + this.config.overlayColor + '"></div>');
         }
         if (this.config.stickyButton) {
           bu = this;
@@ -162,6 +163,7 @@
       },
       fade: function(element, work) {
         var bu;
+        this.removeOverlay();
         bu = this;
         if (work === "show") {
           if (this.config.cssanimationIn) {
@@ -214,11 +216,6 @@
           this.centerCalculate(wrapper, innerWrapper);
         }
         this.config.afterEnd();
-        if (this.config.overlay && $('.amaran').length === 0) {
-          $('.amaran-overlay').fadeOut(400, function() {
-            return $(this).remove();
-          });
-        }
       },
       getWidth: function(el) {
         var newEl, newElWidth;
@@ -304,6 +301,7 @@
       },
       slide: function(effect, element, work) {
         var bu, position;
+        this.removeOverlay();
         position = this.getPosition(element, effect);
         if (work === "show") {
           element.show().css(position.start).animate(position.move);
@@ -321,6 +319,11 @@
           }, function() {
             return bu.removeIt(element);
           });
+        }
+      },
+      removeOverlay: function() {
+        if (this.config.overlay && $('.amaran').length <= 1) {
+          return $('.amaran-overlay').remove();
         }
       },
       close: function() {
@@ -362,17 +365,14 @@
         return "<div class=\"icon\"><img src=\"" + data.img + "\" alt=\"\" /></div><div class=\"info\"><b>" + data.user + "</b>" + data.message + "</div>";
       },
       colorfulTheme: function(data) {
-        var bgcolor, color, border;
+        var bgcolor, color;
         if (typeof data.color !== "undefined") {
           color = data.color;
         }
         if (typeof data.bgcolor !== "undefined") {
           bgcolor = data.bgcolor;
         }
-        if (typeof data.border !== "undefined") {
-          border = data.border;
-        }
-        return "<div class='colorful-inner' style='border:" + data.border + ";background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>";
+        return "<div class='colorful-inner' style='background-color:" + data.bgcolor + ";color:" + data.color + "'>" + data.message + "</div>";
       },
       tumblrTheme: function(data) {
         return "<div class=\"title\">" + data.title + "</div><div class=\"content\">" + data.message + "</div>";

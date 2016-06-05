@@ -1,8 +1,8 @@
 #!
-# * jQuery AmaranJS Plugin v0.5.4
+# * jQuery AmaranJS Plugin v0.5.5
 # * https://github.com/hakanersu/AmaranJS
 # *
-# * Copyright 2013, 2014 Hakan ERSU
+# * Copyright 2013, 2016 Hakan ERSU
 # * Released under the MIT license
 # 
 
@@ -25,6 +25,8 @@
           cssanimationOut: false
           resetTimeout: false
           overlay: false
+          overlayColor: 'rgba(153,204,51,.9)'
+
           beforeStart: ->
               
           afterEnd: ->
@@ -122,7 +124,7 @@
                     bu.resumeTimeout(element)
 
             if @config.overlay && $('.amaran-overlay').length<=0
-                $('body').prepend('<div class="amaran-overlay"></div>')
+                $('body').prepend('<div class="amaran-overlay" style="background-color:'+@config.overlayColor+'"></div>')    
 
             if @config.stickyButton
                 bu = this
@@ -174,6 +176,7 @@
         fade: (element,work) ->
             # Fade is easy one
             # if work is show just fadein element
+            @.removeOverlay()  
             bu = @
             if work is "show"
                 if @.config.cssanimationIn
@@ -225,9 +228,7 @@
             innerWrapper = wrapper.find ".amaran-wrapper-inner"
             @centerCalculate wrapper, innerWrapper  if @config.position.split(" ")[0] is "center"
             @.config.afterEnd()
-            if @config.overlay and $('.amaran').length==0
-                $('.amaran-overlay').fadeOut 400, ->
-                    $(this).remove()           
+                     
 
             return
         # why this method ?
@@ -327,6 +328,7 @@
         # We have all effect values from previous method 
         # so lets create slide method
         slide: (effect,element,work) ->
+            @.removeOverlay()
             # Get calculated values with given element and effect
             position = @getPosition(element,effect)
             # if just show it is the easy one
@@ -350,6 +352,11 @@
                     #element.remove()
                     bu.removeIt(element)
                     #bu.config.afterEnd()
+        
+        removeOverlay: ->
+            if @config.overlay and $('.amaran').length<=1
+                $('.amaran-overlay').remove()
+
         # Lets remove/close element
         close: ->
             bu = this
