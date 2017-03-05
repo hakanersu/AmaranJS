@@ -12,8 +12,6 @@ let counter = {
     'br': 0
 };
 
-//Velocity(item, { opacity: 0 }, { duration: 1000 });
-
 class Amaran {
     constructor() {
         let defaults = {

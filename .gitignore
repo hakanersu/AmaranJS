@@ -20,3 +20,4 @@ amaranjs/node_modules/*
 /.idea/
 .sass-cache
 /.sass-cache
+.DS_Store

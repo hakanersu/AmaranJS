@@ -68,41 +68,28 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Element__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_velocity_animate__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_velocity_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_velocity_animate__);
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Element = __webpack_require__(3);
+let item = document.getElementById('item');
 
-var _Element2 = _interopRequireDefault(_Element);
-
-var _velocityAnimate = __webpack_require__(5);
-
-var _velocityAnimate2 = _interopRequireDefault(_velocityAnimate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var item = document.getElementById('item');
-
-var counter = {
+let counter = {
     'tl': 0,
     'tr': 0,
     'bl': 0,
     'br': 0
 };
 
-//Velocity(item, { opacity: 0 }, { duration: 1000 });
-
-var Amaran = function () {
-    function Amaran() {
-        _classCallCheck(this, Amaran);
-
-        var defaults = {
+class Amaran {
+    constructor() {
+        let defaults = {
             _type: 'notification',
             _timeout: 3000,
             _theme: 'default',
@@ -117,87 +104,71 @@ var Amaran = function () {
             _innerWrapper: 'amaran-wrapper-inner'
         };
 
-        for (var config in defaults) {
+        for (let config in defaults) {
             if (this[config] === undefined) {
                 this[config] = defaults[config];
             }
         }
     }
 
-    _createClass(Amaran, [{
-        key: 'theme',
-        value: function theme(name) {
-            this._theme = name;
-            return this;
-        }
-    }, {
-        key: 'run',
-        value: function run() {
-            var settings = {
-                _type: this._type,
-                _timeout: this._timeout,
-                _theme: this._theme,
-                _position: this._position,
-                _content: this._content,
-                _in: this._in == 'fade' ? 'fadeIn' : this._in,
-                _from: this._from,
-                _out: this._out == 'fade' ? 'fadeOut' : this._out,
-                _selector: this._selector,
-                _selectorEvent: this._selectorEvent,
-                _wrapper: this._wrapper,
-                _innerWrapper: this._innerWrapper
-            };
+    theme(name) {
+        this._theme = name;
+        return this;
+    }
 
-            this.elem = new _Element2.default(settings, this.content);
-        }
-    }, {
-        key: 'in',
-        value: function _in() {
-            var from = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'fade';
+    run() {
+        let settings = {
+            _type: this._type,
+            _timeout: this._timeout,
+            _theme: this._theme,
+            _position: this._position,
+            _content: this._content,
+            _in: this._in == 'fade' ? 'fadeIn' : this._in,
+            _from: this._from,
+            _out: this._out == 'fade' ? 'fadeOut' : this._out,
+            _selector: this._selector,
+            _selectorEvent: this._selectorEvent,
+            _wrapper: this._wrapper,
+            _innerWrapper: this._innerWrapper
+        };
 
-            this._in = from == 'fade' ? 'fadeIn' : 'slide' + from;
-            return this;
-        }
-    }, {
-        key: 'out',
-        value: function out() {
-            var from = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'fade';
+        this.elem = new __WEBPACK_IMPORTED_MODULE_0__Element__["a" /* default */](settings, this.content);
+    }
 
-            this._out = from == 'fade' ? 'fadeOut' : 'slide' + from;
-            return this;
-        }
-    }, {
-        key: 'position',
-        value: function position(_position) {
-            this._position = _position;
-            return this;
-        }
-    }, {
-        key: 'timeout',
-        value: function timeout(time) {
-            this._timeout = time;
-            return this;
-        }
-    }, {
-        key: 'content',
-        value: function content(_content) {
-            this.content = _content;
-            return this;
-        }
-    }]);
+    in(from = 'fade') {
+        this._in = from == 'fade' ? 'fadeIn' : 'slide' + from;
+        return this;
+    }
 
-    return Amaran;
-}();
+    out(from = 'fade') {
+        this._out = from == 'fade' ? 'fadeOut' : 'slide' + from;
+        return this;
+    }
 
-window.amaran = function () {
-    return function (content) {
-        var amaran = new Amaran();
-        if (content === undefined) {
-            content = 'Hello from amaranjs, you just forget content. ';
-        }
-        return amaran.content(content);
-    };
-}();
+    position(position) {
+        this._position = position;
+        return this;
+    }
+
+    timeout(time) {
+        this._timeout = time;
+        return this;
+    }
+
+    content(content) {
+        this.content = content;
+        return this;
+    }
+
+}
+
+window.amaran = (() => function (content) {
+    let amaran = new Amaran();
+    if (content === undefined) {
+        content = 'Hello from amaranjs, you just forget content. ';
+    }
+    return amaran.content(content);
+})();
 
 /***/ }),
 /* 1 */
@@ -207,141 +178,94 @@ window.amaran = function () {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Position__ = __webpack_require__(4);
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _Position = __webpack_require__(4);
-
-var _Position2 = _interopRequireDefault(_Position);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Effect = function () {
-    function Effect(config, wrapper) {
-        _classCallCheck(this, Effect);
-
+class Effect {
+    constructor(config, wrapper) {
         this.config = config;
         this.wrapper = wrapper;
     }
 
-    _createClass(Effect, [{
-        key: 'elem',
-        value: function elem(_elem) {
-            this.elem = _elem;
-            return this;
-        }
-    }, {
-        key: 'start',
-        value: function start() {
-            this[this.config._in]();
-        }
-    }, {
-        key: 'fadeIn',
-        value: function fadeIn() {
-            var _this = this;
+    elem(elem) {
+        this.elem = elem;
+        return this;
+    }
 
-            Velocity(this.elem, "fadeIn", { duration: 1000 }).then(function () {
-                _this.position = new _Position2.default(_this.elem, _this.wrapper);
-                _this[_this.config._out]();
-            });
-        }
-    }, {
-        key: 'slideright',
-        value: function slideright() {
+    start() {
+        this[this.config._in]();
+    }
 
-            this.outFunction({
-                right: -this.position.get('wrapperWidth')
-            });
-        }
-    }, {
-        key: 'slideleft',
-        value: function slideleft() {
-            console.log('left out');
-        }
-    }, {
-        key: 'fadeLeft',
-        value: function fadeLeft() {
-            this.fadeOut();
-        }
-    }, {
-        key: 'fadeRight',
-        value: function fadeRight() {
-            this.fadeOut();
-        }
-    }, {
-        key: 'fadeOut',
-        value: function fadeOut() {
-            this.outFunction({
-                opacity: 0,
-                overflow: 'hidden'
-            });
-        }
-    }, {
-        key: 'outFunction',
-        value: function outFunction(inSettings) {
-            var _this2 = this;
+    fadeIn() {
+        Velocity(this.elem, "fadeIn", { duration: 1000 }).then(() => {
+            this.position = new __WEBPACK_IMPORTED_MODULE_0__Position__["a" /* default */](this.elem, this.wrapper);
+            this[this.config._out]();
+        });
+    }
 
-            setTimeout(function () {
-                Velocity(_this2.elem, inSettings, { duration: 1000 }).then(function () {
-                    Velocity(_this2.elem, {
-                        height: 0,
-                        minHeight: 'auto',
-                        lineHeight: 0
-                    }, { duration: 400 }).then(function () {
-                        _this2.elem.remove();
-                    });
+    slideright() {
+
+        this.outFunction({
+            right: -this.position.get('wrapperWidth')
+        });
+    }
+
+    slideleft() {
+        console.log('left out');
+    }
+
+    fadeLeft() {
+        this.fadeOut();
+    }
+
+    fadeRight() {
+        this.fadeOut();
+    }
+
+    fadeOut() {
+        this.outFunction({
+            opacity: 0,
+            overflow: 'hidden'
+        });
+    }
+
+    outFunction(inSettings) {
+        setTimeout(() => {
+            Velocity(this.elem, inSettings, { duration: 1000 }).then(() => {
+                Velocity(this.elem, {
+                    height: 0,
+                    minHeight: 'auto',
+                    lineHeight: 0
+                }, { duration: 400 }).then(() => {
+                    this.elem.remove();
                 });
-            }, this.config._timeout);
-        }
-    }]);
+            });
+        }, this.config._timeout);
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Effect;
 
-    return Effect;
-}();
-
-exports.default = Effect;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Effect__ = __webpack_require__(2);
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _Effect = __webpack_require__(2);
-
-var _Effect2 = _interopRequireDefault(_Effect);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Element = function () {
-    function Element(config, content) {
-        _classCallCheck(this, Element);
-
+class Element {
+    constructor(config, content) {
         this.config = config;
         this.content = content;
 
-        var wrapper = document.getElementsByClassName(config._wrapper + ' ' + config._position);
-        var inner = void 0;
+        let wrapper = document.getElementsByClassName(config._wrapper + ' ' + config._position);
+        let inner;
         if (wrapper.length <= 0) {
-            var wrap = this.create(config._wrapper + ' ' + config._position);
+            let wrap = this.create(config._wrapper + ' ' + config._position);
             inner = this.create(config._innerWrapper);
             wrap.appendChild(inner);
             document.querySelector('body').appendChild(wrap);
@@ -351,79 +275,52 @@ var Element = function () {
         }
         this.inner = inner;
         this.wrapper = wrapper;
-        this.effect = new _Effect2.default(config, wrapper);
+        this.effect = new __WEBPACK_IMPORTED_MODULE_0__Effect__["a" /* default */](config, wrapper);
         this.build();
     }
 
-    _createClass(Element, [{
-        key: 'create',
-        value: function create(name) {
-            var elem = document.createElement("div");
-            elem.className += name;
-            return elem;
-        }
-        // Builds
+    create(name) {
+        let elem = document.createElement("div");
+        elem.className += name;
+        return elem;
+    }
+    // Builds
+    build() {
+        let content = this.parse('<div class="amaran default">${content}</div>', {
+            content: this.content
+        });
+        let tmp = document.implementation.createHTMLDocument();
+        tmp.body.innerHTML = content;
+        let amaran = tmp.body.children[0];
+        this.inner.appendChild(amaran);
+        this.effect.elem(amaran).start();
+    }
 
-    }, {
-        key: 'build',
-        value: function build() {
-            var content = this.parse('<div class="amaran default">${content}</div>', {
-                content: this.content
-            });
-            var tmp = document.implementation.createHTMLDocument();
-            tmp.body.innerHTML = content;
-            var amaran = tmp.body.children[0];
-            this.inner.appendChild(amaran);
-            this.effect.elem(amaran).start();
-        }
-    }, {
-        key: 'get',
-        value: function get(path, obj) {
-            var fb = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '${' + path + '}';
+    get(path, obj, fb = `$\{${path}}`) {
+        return path.split('.').reduce((res, key) => res[key] || fb, obj);
+    }
 
-            return path.split('.').reduce(function (res, key) {
-                return res[key] || fb;
-            }, obj);
-        }
-    }, {
-        key: 'parse',
-        value: function parse(template, map, fallback) {
-            var _this = this;
+    parse(template, map, fallback) {
+        return template.replace(/\$\{.+?}/g, match => {
+            const path = match.substr(2, match.length - 3).trim();
+            return this.get(path, map, fallback);
+        });
+    }
 
-            return template.replace(/\$\{.+?}/g, function (match) {
-                var path = match.substr(2, match.length - 3).trim();
-                return _this.get(path, map, fallback);
-            });
-        }
-    }]);
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Element;
 
-    return Element;
-}();
-
-exports.default = Element;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Position = function () {
-    function Position(element, w) {
-        _classCallCheck(this, Position);
-
-        var wrapper = w[0];
-        var windowHeight = window.innerHeight;
-        var windowWidth = window.innerWidth;
+class Position {
+    constructor(element, w) {
+        let wrapper = w[0];
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
         // TODO posizsyona gore bu degerleri degistirmen gerek.
         this.position = {
             windowHeight: windowHeight,
@@ -440,17 +337,12 @@ var Position = function () {
         };
     }
 
-    _createClass(Position, [{
-        key: "get",
-        value: function get(name) {
-            return this.position[name];
-        }
-    }]);
+    get(name) {
+        return this.position[name];
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Position;
 
-    return Position;
-}();
-
-exports.default = Position;
 
 /***/ }),
 /* 5 */
