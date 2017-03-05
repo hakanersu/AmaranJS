@@ -1,9 +1,5 @@
-import Element from './Element';
+import Element from './js/Element';
 import Velocity from 'velocity-animate';
-
-
-let item = document.getElementById('item');
-
 
 let counter = {
     'tl': 0,

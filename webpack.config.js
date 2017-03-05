@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
 var inProduction = (process.env.NODE_ENV === 'production');
-var  ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	entry: {
 		amaran: [
 			'./src/amaran.js',
-			'./src/amaran.scss'
+			'./src/scss/amaran.scss'
 		],
 	},
 	output: {

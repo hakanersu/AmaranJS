@@ -72,13 +72,11 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Element__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_Element__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_velocity_animate__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_velocity_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_velocity_animate__);
 
 
-
-let item = document.getElementById('item');
 
 let counter = {
     'tl': 0,
@@ -132,7 +130,7 @@ class Amaran {
             _innerWrapper: this._innerWrapper
         };
 
-        this.elem = new __WEBPACK_IMPORTED_MODULE_0__Element__["a" /* default */](settings, this.content);
+        this.elem = new __WEBPACK_IMPORTED_MODULE_0__js_Element__["a" /* default */](settings, this.content);
     }
 
     in(from = 'fade') {
@@ -200,16 +198,19 @@ class Effect {
     }
 
     fadeIn() {
+
         Velocity(this.elem, "fadeIn", { duration: 1000 }).then(() => {
-            this.position = new __WEBPACK_IMPORTED_MODULE_0__Position__["a" /* default */](this.elem, this.wrapper);
+            this.position = new __WEBPACK_IMPORTED_MODULE_0__Position__["a" /* default */](this.elem, this.wrapper, this.config);
+
             this[this.config._out]();
         });
     }
 
     slideright() {
-
+        let left = this.position.get().right;
+        console.log(left);
         this.outFunction({
-            right: -this.position.get('wrapperWidth')
+            left: left
         });
     }
 
@@ -317,28 +318,71 @@ class Element {
 
 "use strict";
 class Position {
-    constructor(element, w) {
+    constructor(element, w, config) {
         let wrapper = w[0];
+        let positions = config._position.split(' ');
+        this.vertical = positions[0][0];
+        this.horizontal = positions[1][0];
         let windowHeight = window.innerHeight;
         let windowWidth = window.innerWidth;
+
+        // margin padding value for older browsers.
+        let mp = 30;
         // TODO posizsyona gore bu degerleri degistirmen gerek.
-        this.position = {
-            windowHeight: windowHeight,
-            windowWidth: windowWidth,
-            wrapperHeight: wrapper.offsetHeight,
-            wrapperWidth: wrapper.offsetWidth,
-            wrapperOffsetTop: wrapper.offsetTop,
-            wrapperOffsetBottom: windowHeight - (wrapper.offsetTop + wrapper.offsetHeight),
-            wrapperOffsetLeft: wrapper.offsetLeft,
-            wrapperOffsetRight: windowWidth - (wrapper.offsetLeft + wrapper.offsetWidth),
-            elementOffsetTop: element.offsetTop,
-            elementHeight: element.offsetHeight,
-            elementOffsetBottom: windowHeight - element.offsetTop
+        // canvasHeight 
+        let ch = windowHeight;
+        // canvasWidth
+        let cw = windowWidth;
+        //wrapperHeight
+        let wh = wrapper.offsetHeight;
+        //wrapperWidth
+        let ww = wrapper.offsetWidth;
+        // wrapperOffsetTop
+        let wot = wrapper.offsetTop;
+        // wrapperOffsetBottom
+        let wob = windowHeight - (wrapper.offsetTop + wrapper.offsetHeight);
+        // wrapperOffsetLeft
+        let wol = wrapper.offsetLeft;
+        //wrapperOffsetRight
+        let wor = windowWidth - (wrapper.offsetLeft + wrapper.offsetWidth);
+        //elementOffsetTop
+        let eot = element.offsetTop;
+        //elementHeight
+        let eh = element.offsetHeight;
+        //elementOffsetBottom
+        let eob = windowHeight - element.offsetTop;
+
+        this.pos = {
+            tl: {
+                left: ww + mp,
+                right: cw + mp,
+                top: eot + eh + mp,
+                bottom: eob + eh + mp
+            },
+            tr: {
+                left: ww + mp,
+                right: cw - ww + mp,
+                top: eot + eh + mp,
+                bottom: eob + eh + mp
+            },
+            bl: {
+                left: ww + mp,
+                right: cw - ww + mp,
+                top: ch - eob + mp,
+                bottom: eob + eh + mp
+            },
+            br: {
+                left: ww + mp,
+                right: cw - ww + mp,
+                top: ch - eob + mp,
+                bottom: eob + eh + mp
+            }
         };
     }
 
-    get(name) {
-        return this.position[name];
+    get() {
+        console.log(this.vertical + this.horizontal);
+        return this.pos[this.vertical + this.horizontal];
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Position;
