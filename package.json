@@ -1,26 +1,29 @@
 {
-  "name": "amaranjs",
-  "title": "AmaranJS",
-  "description": "Nice, sleek and stylish notifications.",
-  "author": "Hakan ERSU",
-  "homepage": "http://hakanersu.github.io/AmaranJS/",
-  "version": "0.5.5",
+  "name": "amaran",
+  "version": "2.0.0",
+  "description": "AmaranJS nice sleek animations.",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "webpack",
+    "watch": "npm run dev -- --watch",
+    "production": "NODE_ENV=production webpack",
+    "server": "./node_modules/.bin/webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "velocity-animate": "1.4.3"
+  },
   "devDependencies": {
-      "gulp" : "*",
-      "gulp-ruby-sass" : "*",
-      "gulp-autoprefixer" : "*",
-      "gulp-minify-css" : "*",
-      "gulp-jshint" : "*",
-      "gulp-uglify" : "*",
-      "gulp-imagemin" : "*",
-      "gulp-rename" : "*",
-      "gulp-clean" : "*",
-      "gulp-concat" : "*",
-      "gulp-notify" : "*",
-      "gulp-cache" : "*",
-      "gulp-livereload" : "*",
-      "tiny-lr" : "*",
-      "gulp-coffee":"*",
-      "gulp-plumber":"*"
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.26.2",
+    "extract-text-webpack-plugin": "^2.0.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }

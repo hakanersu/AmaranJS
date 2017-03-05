@@ -1,0 +1,50 @@
+.amaran-wrapper {
+  position: fixed;
+  z-index: 9999; }
+  .amaran-wrapper.top {
+    top: 0;
+    bottom: auto; }
+  .amaran-wrapper.bottom {
+    bottom: 0;
+    top: auto; }
+  .amaran-wrapper.left {
+    left: 0; }
+  .amaran-wrapper.right {
+    right: 0;
+    left: auto; }
+  .amaran-wrapper.center {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+
+.amaran {
+  width: 200px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  min-height: 50px;
+  margin: 10px;
+  display: none; }
+  .amaran.default {
+    width: 300px;
+    background: #1B1E24;
+    background: -webkit-linear-gradient(left, #111213, #111213 15%, #1b1e24 15%, #1b1e24);
+    background: linear-gradient(to right, #111213, #111213 15%, #1b1e24 15%, #1b1e24);
+    color: #fff;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 5px;
+    overflow: hidden;
+    border-bottom: 1px solid #111213;
+    border-radius: 6px; }
