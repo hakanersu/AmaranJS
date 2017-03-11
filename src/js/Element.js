@@ -37,7 +37,6 @@ export default class Element {
         let amaran = tmp.body.children[0];
         this.inner.appendChild(amaran);
         this.effect.elem(amaran).start();
-
     }
 
     get(path, obj, fb = `$\{${path}}`) {

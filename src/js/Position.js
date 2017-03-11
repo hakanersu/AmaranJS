@@ -63,7 +63,6 @@ export default class Position {
     }
 
     get() {
-        console.log(this.vertical+this.horizontal)
         return this.pos[this.vertical+this.horizontal];
     }
 }

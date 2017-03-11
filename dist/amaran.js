@@ -90,6 +90,9 @@ class Amaran {
         let defaults = {
             _type: 'notification',
             _timeout: 3000,
+            _closeOnClick: true,
+            _sticky: false,
+            _stickyButton: false,
             _theme: 'default',
             _position: 'top right',
             _content: 'Hello World!',
@@ -119,7 +122,10 @@ class Amaran {
             _type: this._type,
             _timeout: this._timeout,
             _theme: this._theme,
+            _closeOnClick: this._closeOnClick,
             _position: this._position,
+            _sticky: this._sticky,
+            _stickyButton: this._sticky,
             _content: this._content,
             _in: this._in == 'fade' ? 'fadeIn' : this._in,
             _from: this._from,
@@ -150,6 +156,16 @@ class Amaran {
 
     timeout(time) {
         this._timeout = time;
+        return this;
+    }
+
+    sticky() {
+        this._sticky = true;
+        return this;
+    }
+
+    closeOnClick(s = true) {
+        this._closeOnClick = s;
         return this;
     }
 
@@ -186,10 +202,17 @@ class Effect {
     constructor(config, wrapper) {
         this.config = config;
         this.wrapper = wrapper;
+        this.click = false;
     }
 
     elem(elem) {
         this.elem = elem;
+        elem.onclick = () => {
+            this.click = this.config._closeOnClick;
+            if (this.config._closeOnClick) {
+                this.startOut();
+            }
+        };
         return this;
     }
 
@@ -198,26 +221,42 @@ class Effect {
     }
 
     fadeIn() {
-
         Velocity(this.elem, "fadeIn", { duration: 1000 }).then(() => {
             this.position = new __WEBPACK_IMPORTED_MODULE_0__Position__["a" /* default */](this.elem, this.wrapper, this.config);
-
-            this[this.config._out]();
+            this.startOut();
         });
     }
 
+    startOut() {
+        this[this.config._out]();
+    }
+
     slideright() {
-        let left = this.position.get().right;
-        console.log(left);
+        let pos = this.position.get().right;
         this.outFunction({
-            left: left
+            left: pos
         });
     }
 
     slideleft() {
-        console.log('left out');
+        let pos = -this.position.get().left;
+        this.outFunction({
+            left: pos
+        });
+    }
+    slidebottom() {
+        let pos = -this.position.get().bottom;
+        this.outFunction({
+            bottom: pos
+        });
     }
 
+    slidetop() {
+        let pos = -this.position.get().top;
+        this.outFunction({
+            top: pos
+        });
+    }
     fadeLeft() {
         this.fadeOut();
     }
@@ -234,6 +273,10 @@ class Effect {
     }
 
     outFunction(inSettings) {
+        if (this.config._sticky && !this.click) {
+            return;
+        }
+        let timeout = this.click ? 0 : this.config._timeout;
         setTimeout(() => {
             Velocity(this.elem, inSettings, { duration: 1000 }).then(() => {
                 Velocity(this.elem, {
@@ -244,7 +287,7 @@ class Effect {
                     this.elem.remove();
                 });
             });
-        }, this.config._timeout);
+        }, timeout);
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Effect;
@@ -381,7 +424,6 @@ class Position {
     }
 
     get() {
-        console.log(this.vertical + this.horizontal);
         return this.pos[this.vertical + this.horizontal];
     }
 }

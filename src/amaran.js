@@ -13,6 +13,9 @@ class Amaran {
         let defaults = {
             _type: 'notification',
             _timeout: 3000,
+            _closeOnClick: true,
+            _sticky: false,
+            _stickyButton: false,
             _theme: 'default',
             _position: 'top right',
             _content: 'Hello World!',
@@ -42,7 +45,10 @@ class Amaran {
             _type: this._type,
             _timeout: this._timeout,
             _theme: this._theme,
+            _closeOnClick: this._closeOnClick,
             _position: this._position,
+            _sticky: this._sticky,
+            _stickyButton: this._sticky,
             _content: this._content,
             _in: (this._in == 'fade') ? 'fadeIn' : this._in,
             _from: this._from,
@@ -73,6 +79,16 @@ class Amaran {
 
     timeout(time) {
         this._timeout = time;
+        return this;
+    }
+
+    sticky() {
+        this._sticky = true;
+        return this;
+    } 
+
+    closeOnClick(s=true) {
+        this._closeOnClick = s;
         return this;
     }
 
