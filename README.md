@@ -1,3 +1,6 @@
+[![Stories in Ready](https://badge.waffle.io/hakanersu/AmaranJS.png?label=ready&title=Ready)](https://waffle.io/hakanersu/AmaranJS) 
+[![Stories in Progress](https://badge.waffle.io/hakanersu/AmaranJS.png?label=in%20progress&title=In%20Progress)](https://waffle.io/hakanersu/AmaranJS)
+
 AmaranJS jQuery Notification Plugin
 ============
 Nice, sleek and stylish notifications.
