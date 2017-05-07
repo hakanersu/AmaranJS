@@ -16,10 +16,12 @@ gulp.task('js',function(){
      gulp.src("src/js/*.js")
          .pipe(concat('amaran.js'))
          .pipe(rename({ suffix: '.min' }))
-         .pipe(uglify())
-         .pipe(gulp.dest('dist/js'))
-         .pipe(notify('All JS Works Done!'));
+         //.pipe(uglify())
+         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('watch',function(){
+    gulp.watch('./src/js/**/*.js',['js']);
+});
 
 gulp.task('default',['js']);

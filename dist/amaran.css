@@ -120,7 +120,7 @@
     color: #fff;
     z-index: 2;
     top: 8px;
-    right: 8px;
+    left: 8px;
     text-align: center;
     line-height: 18px
 }
@@ -184,6 +184,8 @@
 .amaran-wrapper {
     position: fixed;
     z-index: 9999
+    width: 300px;
+
 }
 .amaran-wrapper.top {
     top: 0;
@@ -328,3 +330,33 @@
     background: #78ba00;
     color: #fff
 }
+
+.amaran {
+    transition: all 1s ease;
+
+}
+.amaran-wrapper.right .amaran--fromLeft{
+    margin-left: 105%;
+}
+
+.amaran-wrapper.right .amaran--fromRight{
+    right: 100vw;
+}
+
+.amaran-wrapper.right .amaran--fromTop{
+
+}
+.amaran-wrapper.right .amaran--fromBottom{
+
+}
+
+
+.amaran-wrapper.right .amaran--toRight {}
+.amaran-wrapper.rigth .amaran--toLeft {}
+.amaran-wrapper.rigth .amaran--toBottom {}
+.amaran-wrapper.rigth .amaran--toTop {}
+
+.amaran-wrapper.left .amaran--toRight {}
+.amaran-wrapper.left .amaran--toLeft {}
+.amaran-wrapper.left .amaran--toBottom {}
+.amaran-wrapper.left .amaran--toTop {}

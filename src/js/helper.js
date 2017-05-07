@@ -48,5 +48,8 @@ var Helper = {
         delete this.style[key];
         return this;
       }
+    },
+    capitalize: function(s) {
+       return s && s[0].toUpperCase() + s.slice(1);
     }
 };

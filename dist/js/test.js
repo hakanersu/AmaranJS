@@ -1,5 +1,5 @@
-var amaran = (function () {
-    var Amaran = {
+var amaran = (function() {
+  var amaranObject = {
     config: {
       type: 'notification',
       theme: 'default',
@@ -10,8 +10,7 @@ var amaran = (function () {
       in: 'fade',
       out: 'fade',
       selector: 'none',
-      selectorEvent: "click",
-      timeout: 3000
+      selectorEvent: "click"
     },
 
     init: function (config) {
@@ -42,22 +41,13 @@ var amaran = (function () {
       this.config.yaxis = yaxis;
       return this;
     },
-    timeout: function(value) {
-        this.config.timeout = value;
-        return this;
-    },
 
     content: function (content){
       this.config.content = content;
       return this;
     }
   };
-
-
-    return function (content) {
-        if (content === undefined) {
-            content = 'Hello from amaranjs, you just forget content.';
-        }
-        return Amaran.init(content);
-    };
+  return function(config){
+    return amaranObject.init(config);
+  };
 }());

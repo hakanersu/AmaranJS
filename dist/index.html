@@ -8,12 +8,41 @@
         <link rel="stylesheet" href="./amaran.css">
     </head>
     <body>
-
+      <button id="button">Button</button>
       <script src="velocity.min.js" charset="utf-8"></script>
       <script src="./js/amaran.min.js" charset="utf-8"></script>
-      
+
       <script type="text/javascript">
-        amaran().in('left').out('bottom').content('Merhaba dunya.').run();
+      document.getElementById('button').addEventListener('click',function(){
+        var elements = document.getElementsByClassName('amaran');
+          // elements[0].style.marginLeft = "0";
+          // elements[1].style.right = "5px";
+          // elements[2].style.right = "5px";
+
+        });
+        amaran()
+          .position('top', 'right')
+          .in('left')
+          .out('left')
+          .timeout(1000)
+          .content('Merhaba dunya.')
+          .run();
+
+        amaran()
+          .position('top', 'right')
+          .in('right')
+          .out('bottom')
+          .timeout(2000)
+          .content('Merhaba dunya.')
+          .run();
+
+        amaran()
+          .position('bottom', 'right')
+          .in('right')
+          .out('bottom')
+          .timeout(3000)
+          .content('Merhaba dunya.')
+          .run();
       </script>
     </body>
 </html>
