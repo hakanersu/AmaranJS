@@ -1,4 +1,7 @@
 var amaran = (function () {
+    // TODO CONFIG DISARI ALINACAK OBJENIN ICINDE OLMASI SIKINTI
+
+    var mainConfig = {};
     var Amaran = {
     config: {
       type: 'notification',
@@ -33,13 +36,13 @@ var amaran = (function () {
 
     run: function() {
       Element.createWrapper(this);
-      Element.in();
       return this;
     },
 
     position: function(yaxis, xaxis) {
       this.config.xaxis = xaxis;
       this.config.yaxis = yaxis;
+      this.config.position = yaxis +' '+ xaxis;
       return this;
     },
     timeout: function(value) {

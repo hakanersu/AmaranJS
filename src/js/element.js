@@ -58,60 +58,87 @@ var Element = {
 
     position.calculate();
 
+    this.in(amaran);
+
     return amaran;
   },
 
-  in: function() {
+  in: function(elem) {
     var pos = this.main.config.position.split(" ");
     var that = this;
 
     if (pos[1] == 'right' && this.main.config.in == 'left') {
-      this.timeout('marginLeft',0, this.amaran);
+      this.timeout('right', '5px', elem);
     }
 
     if (pos[1] == 'right' && this.main.config.in == 'right') {
-        this.timeout('right', '5px', this.amaran);
+        this.timeout('marginLeft',0, elem);
     }
 
+    if (pos[1] == 'left' && this.main.config.in == 'left') {
+
+      this.timeout('marginLeft', '5px', elem);
+    }
   },
   out: function(elem, out) {
-    console.log('Triggered');
     var pos = this.main.config.position.split(" ");
     var that = this;
     var coordinates = elem.getBoundingClientRect();
+    console.log(pos);
     if (pos[1] == 'right' && out == 'left') {
-      elem.style.marginLeft = (coordinates.left + coordinates.width + 15) + 'px';
+      this.moveX(elem,-(coordinates.left + coordinates.width + 15))
+    }
+    if (pos[1] == 'left' && out == 'left') {
+      this.moveX(elem,-(coordinates.width + 15))
+    }
+console.log('Sag:', pos[1])
+console.log('Sol:', out)
+    if (pos[1] == 'left' && out == 'right') {
+console.log('here');
+      this.moveX(elem, (window.innerWidth + coordinates.width + 15))
+    }
+
+    if (pos[1] == 'right' && out == 'right') {
+        this.moveX(elem,(coordinates.width + 15))
     }
 
     if (pos[1] == 'right' && out == 'bottom') {
-      elem.style.marginTop = (coordinates.bottom + 15) + 'px';
+      this.moveY(elem,(window.innerHeight-coordinates.top + 15))
     }
   },
-  timeout: function(key, value, amaran, effect) {
+  moveX: function(elem, pos){
+    this.trans('x', pos, elem);
+  },
+  moveY: function(elem, pos){
+    this.trans('y', pos, elem);
+  },
+  trans: function(direction, pos, elem) {
+    elem.style.transform = 'translate' + direction.toUpperCase() + '(' + pos + 'px)';
+  },
+  timeout: function(key, value, amaran) {
     var that = this;
     var transitionEnd = this.amaranTransitionEnd();
     var timeout = this.main.config.timeout;
     var out = this.main.config.out;
 
-    if (effect === undefined) {
-      effect = 'in';
-    }
+    // If i use traditional event listener it can trigger more than once. ( transition can be tricky)
+    // with this function it will trigger once.
+    // http://stackoverflow.com/questions/4878805/force-javascript-eventlistener-to-execute-once
+    var transitionListener = function(amaran, timeout,out) {
+        that.amaranClose(amaran, timeout, out);
+        window.removeEventListener(transitionEnd, transitionListener, false );
+    };
 
     setTimeout(function(){
       amaran.style[key] = value;
-      if (effect == 'in') {
-        amaran.addEventListener(transitionEnd, function(){
-          that.amaranClose(amaran, timeout, out);
-        }, false);
-      }
-
+      amaran.addEventListener(transitionEnd, transitionListener(amaran, timeout,out), false);
     },100);
   },
   amaranClose: function(elem, timeout, out){
     var that = this;
-
+  
     setTimeout(function(){
-      that.out(elem,out);
+      that.out(elem, out);
     }, timeout);
 
   },

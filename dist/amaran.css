@@ -336,11 +336,11 @@
 
 }
 .amaran-wrapper.right .amaran--fromLeft{
-    margin-left: 105%;
+    right: 100vw;
 }
 
 .amaran-wrapper.right .amaran--fromRight{
-    right: 100vw;
+      margin-left: 105%;
 }
 
 .amaran-wrapper.right .amaran--fromTop{
@@ -356,6 +356,21 @@
 .amaran-wrapper.rigth .amaran--toBottom {}
 .amaran-wrapper.rigth .amaran--toTop {}
 
+
+  .amaran-wrapper.left .amaran--fromLeft{
+      margin-left: -100%;
+  }
+
+  .amaran-wrapper.left .amaran--fromRight{
+
+  }
+
+  .amaran-wrapper.left .amaran--fromTop{
+
+  }
+  .amaran-wrapper.left .amaran--fromBottom{
+
+  }
 .amaran-wrapper.left .amaran--toRight {}
 .amaran-wrapper.left .amaran--toLeft {}
 .amaran-wrapper.left .amaran--toBottom {}
