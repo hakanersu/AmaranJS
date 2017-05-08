@@ -1,21 +1,19 @@
 var amaran = (function () {
-    // TODO CONFIG DISARI ALINACAK OBJENIN ICINDE OLMASI SIKINTI
 
-    var mainConfig = {};
     var Amaran = {
-    config: {
-      type: 'notification',
-      theme: 'default',
-      position: 'top right',
-      xaxis: 'top',
-      yaxis: 'right',
-      content: 'Hello from amaranjs, you just forget content.',
-      in: 'fade',
-      out: 'fade',
-      selector: 'none',
-      selectorEvent: "click",
-      timeout: 3000
-    },
+      config: {
+        type: 'notification',
+        theme: 'default',
+        position: 'top right',
+        xaxis: 'top',
+        yaxis: 'right',
+        content: 'Hello from amaranjs, you just forget content.',
+        in: 'fade',
+        out: 'fade',
+        selector: 'none',
+        selectorEvent: "click",
+        timeout: 3000
+      },
 
     init: function (config) {
       if (config  !== undefined) {
