@@ -70,16 +70,32 @@ var Element = {
     var that = this;
 
     if (pos[1] === 'right' && this.main.config.in === 'left') {
+      elem.style.transition = 'all 1s ease';
       this.timeout('right', '5px', elem);
     }
 
     if (pos[1] === 'right' && this.main.config.in === 'right') {
+      elem.style.transition = 'all 1s ease';
         this.timeout('marginLeft',0, elem);
     }
 
     if (pos[1] === 'left' && this.main.config.in === 'left') {
-
+      elem.style.transition = 'all 1s ease';
       this.timeout('marginLeft', '5px', elem);
+    }
+    if (this.main.config.in === 'top') {
+      elem.style.opacity = 0;
+      elem.style.display = 'block';
+
+      setTimeout(function(){
+        var coordinates = elem.getBoundingClientRect();
+        elem.style.marginTop = -(coordinates.top + coordinates.height + 5) + 'px';
+        elem.style.opacity = 1;
+        setTimeout(function(){
+          elem.style.transition = 'all 1s ease';
+            elem.style.marginTop = 0;
+        },95);
+      },5)
     }
   },
   out: function(elem, out,config) {
@@ -127,7 +143,6 @@ var Element = {
     // http://stackoverflow.com/questions/4878805/force-javascript-eventlistener-to-execute-once
     var transitionListener = function (amaran, timeout,out, config){
         that.amaranClose(amaran, timeout, out,config);
-
         window.removeEventListener(transitionEnd, transitionListener, false );
     };
 

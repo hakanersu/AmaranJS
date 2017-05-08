@@ -332,15 +332,17 @@
 }
 
 .amaran {
-    transition: all 1s ease;
+    /*transition: all 1s ease;*/
 
 }
 .amaran-wrapper.right .amaran--fromLeft{
     right: 100vw;
+    display: block;
 }
 
 .amaran-wrapper.right .amaran--fromRight{
       margin-left: 105%;
+      display: block;
 }
 
 .amaran-wrapper.right .amaran--fromTop{
@@ -359,6 +361,7 @@
 
   .amaran-wrapper.left .amaran--fromLeft{
       margin-left: -100%;
+      display: block;
   }
 
   .amaran-wrapper.left .amaran--fromRight{

@@ -26,10 +26,7 @@ var Helper = {
       return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
     },
     styles: {
-      style:{
-        'display': 'block',
-        'opacity': 1
-      },
+      style:{},
       text: function(){
         var style  = '';
         for(var i in this.style) {
