@@ -4,9 +4,7 @@ Nice, sleek and stylish notifications.
 
 [Demo & Documentation](http://www.amaranjs.com/) 
 
-> [AmaranJS Laravel 5 Package](https://github.com/hakanersu/amaran-laravel)
-
-You can test  AmaranJS & Animate.css effects [ Test Tool ](http://codepen.io/hakanersu/pen/iqzJA) 
+You can check [AmaranJS v.1.0.1](http://www.amaranjs.com/), with this version amaranjs no longer requires jquery and most of the animations moved to css animations.
 
 ## What is new and What is changed
 
