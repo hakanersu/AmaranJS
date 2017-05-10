@@ -42,7 +42,7 @@ So minimalistic setup look like this
 
 Very basic usage like this;
 
-```javascipt
+```javascript
 amaran()
 	.content('Hello world, im here!')
 	.run();
@@ -52,7 +52,7 @@ And you can use options with two diffrent ways. First you can chain it like firs
 
 If i want to delay notification and make it sticky i can do it like this with first approach;
 
-```javascipt
+```javascript
 amaran()
 	.content('Hello world, im here!')
 	.position('top','left')
@@ -63,7 +63,7 @@ amaran()
 
 or i can pass an config object;
 
-```javascipt
+```javascript
 amaran({
 	content: 'Hello world, im here!',
 	position: 'top left',
@@ -76,7 +76,7 @@ amaran({
 
 Here is the full options;
 
-```javascipt
+```javascript
 {
 	position: 'top right',
 	content: 'Hello from amaranjs, you just forget content.',
