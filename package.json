@@ -1,26 +1,25 @@
 {
-"name": "amaranjs",
-"title": "AmaranJS",
-"description": "Nice, sleek and stylish notifications.",
-"author": "Hakan ERSU",
-"homepage": "http://hakanersu.github.io/AmaranJS/",
-"version": "1.0.0",
-"devDependencies": {
-  "gulp": "*",
-  "gulp-ruby-sass": "*",
-  "gulp-autoprefixer": "*",
-  "gulp-minify-css": "*",
-  "gulp-jshint": "*",
-  "gulp-uglify": "*",
-  "gulp-imagemin": "*",
-  "gulp-rename": "*",
-  "gulp-clean": "*",
-  "gulp-concat": "*",
-  "gulp-notify": "*",
-  "gulp-cache": "*",
-  "gulp-livereload": "*",
-  "tiny-lr": "*",
-  "gulp-coffee": "*",
-  "gulp-plumber": "*"
-  }
+  "name": "amaranjs",
+  "version": "1.0.1",
+  "description": "Nice, sleek and stylish notifications.",
+  "main": "dist/amaran.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakanersu/AmaranJS.git"
+  },
+  "keywords": [
+    "javascript",
+    "notification",
+    "plugin",
+    "css"
+  ],
+  "author": "Hakan ERSU <hakan@ersu.me>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hakanersu/AmaranJS/issues"
+  },
+  "homepage": "https://github.com/hakanersu/AmaranJS#readme"
 }

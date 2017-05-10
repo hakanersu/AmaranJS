@@ -9,48 +9,22 @@
     </head>
     <body>
       <button id="button">Button</button>
-      <script src="velocity.min.js" charset="utf-8"></script>
-      <script src="./js/amaran.min.js" charset="utf-8"></script>
-
+      <script src="./amaran.min.js" charset="utf-8"></script>
       <script type="text/javascript">
-      document.getElementById('button').addEventListener('click',function(){
-        var elements = document.getElementsByClassName('amaran');
-          // elements[0].style.marginLeft = "0";
-          // elements[1].style.right = "5px";
-          // elements[2].style.right = "5px";
-
-        });
         amaran()
-          .position('top', 'left')
-          .in('left')
-          .out('right')
-          .timeout(3000)
-          .content('Merhaba dunya.')
-          .run();
-
-        amaran()
-          .position('top', 'right')
-          .in('right')
-          .out('bottom')
+          .content('Hello from first')
+          .position('bottom', 'right')
           .timeout(4000)
-          .content('Asagi')
-          .run();
-
-        amaran()
-          .position('top', 'right')
-          .in('left')
+          .in('top')
           .out('right')
-          .timeout(5000)
-          .content('Saga')
           .run();
-
-          amaran()
-            .position('top', 'right')
-            .in('top')
-            .out('right')
-            .timeout(5000)
-            .content('Yukardan asagi')
-            .run();
+     amaran()
+          .content('Hello from first')
+          .position('bottom', 'right')
+          .timeout(4000)
+          .in('bottom')
+          .out('right')
+          .run();
       </script>
     </body>
 </html>
