@@ -4,7 +4,7 @@ Nice, sleek and stylish notifications.
 
 [Demo & Documentation](http://www.amaranjs.com/) 
 
-You can check [AmaranJS v.1.0.1](http://www.amaranjs.com/), with this version amaranjs no longer requires jquery and most of the animations moved to css animations.
+You can check [AmaranJS v.1.0.1](https://github.com/hakanersu/AmaranJS/tree/amaran%40v2), with this version amaranjs no longer requires jquery and most of the animations moved to css animations.
 
 ## What is new and What is changed
 
