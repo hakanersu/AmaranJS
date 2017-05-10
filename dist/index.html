@@ -5,25 +5,78 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>AmaranJS</title>
         <meta name="description" content="">
-        <link rel="stylesheet" href="./amaran.css">
+        <link rel="stylesheet" href="./amaran.min.css">
     </head>
     <body>
       <button id="button">Button</button>
+     
       <script src="./amaran.min.js" charset="utf-8"></script>
       <script type="text/javascript">
+
+      amaran({
+        content: 'ahahahah',
+        position: 'top right',
+        in: 'left',
+        out: 'top',
+        sticky: true
+      }).run();
+
         amaran()
-          .content('Hello from first')
+          .content('Hello from first, asdfasdfdf asdfsdf asdfasd kjalsjdljl sdfjlkerkljasdflk dkjkf asdfasdfasdfda asdfasdf asdkjls')
           .position('bottom', 'right')
-          .timeout(4000)
-          .in('top')
+          .timeout(5000)
+          .delay(3000)
+          .sticky()
+          .in('left')
           .out('right')
           .run();
      amaran()
           .content('Hello from first')
           .position('bottom', 'right')
           .timeout(4000)
-          .in('bottom')
+          .in('top')
+          .sticky()
           .out('right')
+          .run();
+      amaran()
+          .content('Hello from first')
+          .position('bottom', 'left')
+          .timeout(4000)
+          .in('top')
+          .sticky()
+          .out('right')
+          .run();
+     amaran()
+          .content('Hello from first')
+          .position('top', 'left')
+          .timeout(4000)
+          .in('left')
+          .sticky()
+          .out('right')
+          .run(); 
+      amaran()
+          .content('Hello from first')
+          .position('top', 'left')
+          .timeout(4000)
+          .in('bottom')
+          .sticky()
+          .out('right')
+          .run();    
+          amaran()
+          .content('Hello from first')
+          .position('top', 'right')
+          .timeout(4000)
+          .in('bottom')
+          .sticky()
+          .out('right')
+          .run();
+          amaran()
+          .content('Hello from first')
+          .position('top', 'right')
+          .timeout(4000)
+          .in('left')
+          .sticky()
+          .out('left')
           .run();
       </script>
     </body>
