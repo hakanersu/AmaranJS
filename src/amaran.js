@@ -2,21 +2,21 @@
   (function(window, document, undefined_) {
     var Amaran = function (options) {
       var defaults = {
-        type: 'notification',
-        theme: 'default',
-        position: 'top right',
-        xaxis: 'top',
-        yaxis: 'right',
-        content: 'Hello from amaranjs, you just forget content.',
-        in: 'right',
-        out: 'right',
+        type: "notification",
+        theme: "default",
+        position: "top right",
+        xaxis: "top",
+        yaxis: "right",
+        content: "Hello from amaranjs, you just forget content.",
+        in: "right",
+        out: "right",
         timeout: 3000,
         sticky: false,
         beforeStart: false,
         afterEnd: false,
         onClick: false,
         delay: 100
-      }
+      };
 
       this.config = this.merge(defaults, options);
       var pos = this.config.position.split(" ");
@@ -26,18 +26,14 @@
 
     Amaran.prototype = {
       init: function (config) {
-        this.config = this.merge(defaults)
+        this.config = this.merge(this.defaults, config);
         return this;
       },
-
-      test: function () {
-        console.log(this.config);
-      }, 
 
       position: function(yaxis, xaxis) {
         this.config.xaxis = xaxis;
         this.config.yaxis = yaxis;
-        this.config.position = yaxis +' '+ xaxis;
+        this.config.position = yaxis +" "+ xaxis;
         return this;
       },
 
@@ -93,15 +89,15 @@
 
       wrapper: function() {
         var inner;
-        var elementClass = 'amaran-wrapper '+ this.config.yaxis + ' '+ this.config.xaxis; 
+        var elementClass = "amaran-wrapper "+ this.config.yaxis + " "+ this.config.xaxis;
         var wrapper = document.getElementsByClassName(elementClass);
         if (wrapper.length <= 0) {
-          var new_wrapper = this.createElement(elementClass);
-          inner = this.createElement('amaran-wrapper-inner');
-          new_wrapper.appendChild(inner);
-          document.querySelector('body').appendChild(new_wrapper);
+          var newWrapper = this.createElement(elementClass);
+          inner = this.createElement("amaran-wrapper-inner");
+          newWrapper.appendChild(inner);
+          document.querySelector("body").appendChild(newWrapper);
         } else {
-          inner = wrapper[0].getElementsByClassName('amaran-wrapper-inner')[0];
+          inner = wrapper[0].getElementsByClassName("amaran-wrapper-inner")[0];
         }
         this.wrapper = wrapper;
         this.amaran = this.notification();
@@ -114,9 +110,9 @@
         if (this.config.beforeStart) {
           this.config.beforeStart();
         }
-        var amaran = this.parse(this.engine(this.theme('default'),this.config))[0];
-        amaran.className += ' amaran--from' + this.capitalize(this.config.in);
-        amaran.addEventListener('click', function() {
+        var amaran = this.parse(this.engine(this.theme("default"),this.config))[0];
+        amaran.className += " amaran--from" + this.capitalize(this.config.in);
+        amaran.addEventListener("click", function() {
           if (this.config.onClick) {
             this.config.onClick();
           } else {
@@ -129,109 +125,104 @@
       inFrom: function () {
         var that = this;
         var style = that.amaran.style;
-
-        if (this.config.xaxis === 'right' && this.config.in === 'left') {
-          style.transition = 'all 1s ease';
-          this.timeoutEffect('right', 0);
+        var coordinates = that.amaran.getBoundingClientRect();
+        if (this.config.xaxis === "right" && this.config.in === "left") {
+          style.transition = "all 1s ease";
+          this.timeoutEffect("right", 0);
         }
 
-        if (this.config.xaxis === 'right' && this.config.in === 'right') {
-          style.transition = 'all 1s ease';
-          this.timeoutEffect('marginLeft', '5px');
+        if (this.config.xaxis === "right" && this.config.in === "right") {
+          style.transition = "all 1s ease";
+          this.timeoutEffect("marginLeft", "5px");
         }
 
-        if (this.config.xaxis === 'left' && this.config.in === 'left') {
-          style.transition = 'all 1s ease';
-          this.timeoutEffect('marginLeft', '5px');
+        if (this.config.xaxis === "left" && this.config.in === "left") {
+          style.transition = "all 1s ease";
+          this.timeoutEffect("marginLeft", "5px");
         }
-        if (this.config.in === 'top') {
+        if (this.config.in === "top") {
           style.opacity = 0;
-          style.display = 'flex';
-          var coordinates = that.amaran.getBoundingClientRect();
+          style.display = "flex";
           setTimeout(function(){
-            style.top = -(coordinates.top + coordinates.height + 15) + 'px';
+            style.top = -(coordinates.top + coordinates.height + 15) + "px";
             style.opacity = 1;
             setTimeout(function(){
-              style.transition = 'all 1s ease';
+              style.transition = "all 1s ease";
               style.top = 0;
               that.close();
             },95);
           },1);
         }
-        if (this.config.in === 'bottom') {
+        if (this.config.in === "bottom") {
           style.opacity = 0;
-          style.display = 'flex';
-          var coordinates = that.amaran.getBoundingClientRect();
-          console.log(coordinates)
+          style.display = "flex";
           setTimeout(function(){
-            style.top = window.innerHeight - coordinates.top + 5 + 'px';
-            console.log(window.innerHeight - (coordinates.top) + coordinates.height)
+            style.top = window.innerHeight - coordinates.top + 5 + "px";
             style.opacity = 1;
             setTimeout(function(){
-              style.transition = 'all 1s ease';
+              style.transition = "all 1s ease";
               style.top = 0;
               that.close();
             },95);
-          },5)
+          },5);
         }
       },
 
       outTo: function () {
-        var coordinates = this.amaran.getBoundingClientRect();                                                                                                                                                                                                                                                                                           
-        if (this.config.xaxis === 'right') {
-          if (this.config.out === 'left') {
-            this.moveX(-(window.innerWidth + coordinates.width + 15));  
+        var coordinates = this.amaran.getBoundingClientRect();
+        if (this.config.xaxis === "right") {
+          if (this.config.out === "left") {
+            this.moveX(-(window.innerWidth + coordinates.width + 15));
           }
-          if (this.config.out === 'right') {
+          if (this.config.out === "right") {
             this.moveX(coordinates.width + 15);
           }
-        } 
-        if (this.config.xaxis == 'left') {
-          if (this.config.out == 'left') {
-            this.moveX(-(coordinates.width + 15))  
+        }
+
+        if (this.config.xaxis === "left") {
+          if (this.config.out === "left") {
+            this.moveX(-(coordinates.width + 15));
           }
-          if (this.config.out == 'right') {
+          if (this.config.out === "right") {
             this.moveX(window.innerWidth + coordinates.width + 15);
           }
         }
 
-        if (this.config.out == 'bottom') {
+        if (this.config.out === "bottom") {
           this.moveY(window.innerHeight-coordinates.top + 15);
         }
 
-        if (this.config.out == 'top') {
+        if (this.config.out === "top") {
           this.moveY(-(coordinates.top + coordinates.height + 15));
         }
 
-        
         var transitionEnd = this.amaranTransitionEnd();
 
         this.amaran.addEventListener(transitionEnd, function(){
           if (this.amaran) {
-            this.amaran.innerHTML = '';
-            this.amaran.className += ' amaran-zip';
+            this.amaran.innerHTML = "";
+            this.amaran.className += " amaran-zip";
             setTimeout(function(){
               this.amaran.parentNode.removeChild(this.amaran);
-            }.bind(this), 600)
+            }.bind(this), 600);
           }
-          
+
           if (this.config.afterEnd) {
-            this.config.afterEnd();  
-          } 
+            this.config.afterEnd();
+          }
         }.bind(this), false);
-        
       },
 
       moveX: function(pos){
-        this.trans('x', pos);
+        this.trans("x", pos);
       },
 
       moveY: function(pos){
-        this.trans('y', pos);
+        this.trans("y", pos);
       },
 
       trans: function (direction, pos) {
-        this.amaran.style.transform = 'translate' + direction.toUpperCase() + '(' + pos + 'px)';
+        this.amaran.style.transform = "translate" + direction.toUpperCase() + "(" + pos + "px)";
       },
 
       createElement: function (name) {
@@ -272,12 +263,12 @@
       amaranTransitionEnd:function  () {
         var i,
             undefined,
-            el = document.createElement('div'),
+            el = document.createElement("div"),
             transitions = {
-                'transition':'transitionend',
-                'OTransition':'otransitionend',
-                'MozTransition':'transitionend',
-                'WebkitTransition':'webkitTransitionEnd'
+                "transition":"transitionend",
+                "OTransition":"otransitionend",
+                "MozTransition":"transitionend",
+                "WebkitTransition":"webkitTransitionEnd"
             };
 
         for (i in transitions) {
@@ -297,13 +288,15 @@
         var re = /<%([^%>]+)?%>/g, reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g, code = 'var r=[];\n', cursor = 0, match;
         var add = function(line, js) {
           js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
-              (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
+              (code += line !== '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
           return add;
-        }
+        };
+
         while(match = re.exec(html)) {
           add(html.slice(cursor, match.index))(match[1], true);
           cursor = match.index + match[0].length;
         }
+
         add(html.substr(cursor, html.length - cursor));
         code += 'return r.join("");';
         return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
@@ -313,7 +306,7 @@
         if (theme === 'default') {
           return  '<div class="amaran <%this.theme%>">'+
                   '<div class="default-spinner">'+
-                  '<span style="background-color:<% if(typeof this.color == "undefined"){%>#27ae60<%}else{%><%this.color%><%}%>"></span>'+
+                  '<span style="background-color:<% if(typeof this.color === undefined){%>#27ae60<%}else{%><%this.color%><%}%>"></span>'+
                   '</div>'+
                   '<div class="default-message">'+
                   '<span><%this.content%></span>'+
