@@ -225,12 +225,20 @@
         return newElWidth;
       },
       getInfo: function(element) {
-        var offset, wrapperOffset;
+        var offset, wrapperOffset,offsetTop, offsetLeft;
         offset = element.offset();
         wrapperOffset = $(this.config.wrapper).offset();
+        try {
+          offsetTop  = offset.top;
+          offsetLeft  = offset.left;
+        }
+        catch(error) {
+          offsetTop  = 0;
+          offsetLeft  = 0;
+        }
         return {
-          t: offset.top,
-          l: offset.left,
+          t: offsetTop,
+          l: offsetLeft,
           h: element.height(),
           w: element.outerWidth(),
           wT: wrapperOffset.top,
