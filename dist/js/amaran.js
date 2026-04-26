@@ -286,7 +286,6 @@ amaran.close = () => {
 };
 var amaran_default = amaran;
 export {
-  amaran,
   amaran_default as default
 };
 //# sourceMappingURL=amaran.js.map

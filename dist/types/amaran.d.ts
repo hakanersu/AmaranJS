@@ -56,5 +56,4 @@ declare function amaran(options: AmaranOptions): AmaranPlugin;
 declare namespace amaran {
     var close: () => void;
 }
-export { amaran };
 export default amaran;

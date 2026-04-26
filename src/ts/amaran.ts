@@ -401,5 +401,4 @@ amaran.close = (): void => {
   document.querySelectorAll('.amaran-wrapper').forEach(el => el.remove());
 };
 
-export { amaran };
 export default amaran;

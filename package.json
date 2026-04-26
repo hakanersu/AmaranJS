@@ -11,7 +11,7 @@
   "types": "dist/types/amaran.d.ts",
   "scripts": {
     "build:js": "esbuild src/ts/amaran.ts --bundle --format=esm --outfile=dist/js/amaran.js --sourcemap",
-    "build:js:iife": "esbuild src/ts/amaran.ts --bundle --format=iife --global-name=Amaran --minify --outfile=dist/js/amaran.iife.min.js",
+    "build:js:iife": "esbuild src/ts/amaran.ts --bundle --format=iife --global-name=amaran --minify --outfile=dist/js/amaran.iife.min.js",
     "build:css": "node scripts/build-css.js",
     "build:types": "tsc --emitDeclarationOnly",
     "build": "npm run build:js && npm run build:js:iife && npm run build:css && npm run build:types",
