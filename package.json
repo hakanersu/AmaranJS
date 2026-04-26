@@ -6,25 +6,22 @@
   "homepage": "http://hakanersu.github.io/AmaranJS/",
   "version": "0.6.0",
   "type": "module",
-  "main": "dist/js/jquery.amaran.js",
-  "types": "dist/types/jquery.amaran.d.ts",
+  "main": "dist/js/amaran.js",
+  "module": "dist/js/amaran.js",
+  "types": "dist/types/amaran.d.ts",
   "scripts": {
-    "build:js": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --outfile=dist/js/jquery.amaran.js --sourcemap",
-    "build:js:min": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --minify --outfile=dist/js/jquery.amaran.min.js",
+    "build:js": "esbuild src/ts/amaran.ts --bundle --format=esm --outfile=dist/js/amaran.js --sourcemap",
+    "build:js:iife": "esbuild src/ts/amaran.ts --bundle --format=iife --global-name=Amaran --minify --outfile=dist/js/amaran.iife.min.js",
     "build:css": "node scripts/build-css.js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build": "npm run build:js && npm run build:js:min && npm run build:css && npm run build:types",
+    "build": "npm run build:js && npm run build:js:iife && npm run build:css && npm run build:types",
     "typecheck": "tsc --noEmit",
-    "dev": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --outfile=dist/js/jquery.amaran.js --sourcemap --watch"
+    "dev": "esbuild src/ts/amaran.ts --bundle --format=esm --outfile=dist/js/amaran.js --sourcemap --watch"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.32",
     "esbuild": "^0.25.0",
     "typescript": "^5.8.3"
   },
-  "peerDependencies": {
-    "jquery": ">=1.9.0"
-  },
-  "keywords": ["notification", "jquery", "plugin", "toast"],
+  "keywords": ["notification", "standalone", "toast", "alert"],
   "license": "MIT"
 }
