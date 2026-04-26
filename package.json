@@ -4,23 +4,24 @@
   "description": "Nice, sleek and stylish notifications.",
   "author": "Hakan ERSU",
   "homepage": "http://hakanersu.github.io/AmaranJS/",
-  "version": "0.5.5",
+  "version": "0.6.0",
+  "type": "module",
+  "main": "dist/js/amaran.js",
+  "module": "dist/js/amaran.js",
+  "types": "dist/types/amaran.d.ts",
+  "scripts": {
+    "build:js": "esbuild src/ts/amaran.ts --bundle --format=esm --outfile=dist/js/amaran.js --sourcemap",
+    "build:js:iife": "esbuild src/ts/amaran.ts --bundle --format=iife --global-name=amaran --minify --outfile=dist/js/amaran.iife.min.js",
+    "build:css": "node scripts/build-css.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:js && npm run build:js:iife && npm run build:css && npm run build:types",
+    "typecheck": "tsc --noEmit",
+    "dev": "esbuild src/ts/amaran.ts --bundle --format=esm --outfile=dist/js/amaran.js --sourcemap --watch"
+  },
   "devDependencies": {
-      "gulp" : "*",
-      "gulp-ruby-sass" : "*",
-      "gulp-autoprefixer" : "*",
-      "gulp-minify-css" : "*",
-      "gulp-jshint" : "*",
-      "gulp-uglify" : "*",
-      "gulp-imagemin" : "*",
-      "gulp-rename" : "*",
-      "gulp-clean" : "*",
-      "gulp-concat" : "*",
-      "gulp-notify" : "*",
-      "gulp-cache" : "*",
-      "gulp-livereload" : "*",
-      "tiny-lr" : "*",
-      "gulp-coffee":"*",
-      "gulp-plumber":"*"
-  }
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.3"
+  },
+  "keywords": ["notification", "standalone", "toast", "alert"],
+  "license": "MIT"
 }

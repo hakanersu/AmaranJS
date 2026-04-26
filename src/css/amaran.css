@@ -1,0 +1,364 @@
+@charset "UTF-8";
+
+/* ─── Custom properties ─────────────────────────────────────── */
+:root {
+  --amaran-z-notification: 9999;
+  --amaran-z-overlay: 777;
+  --amaran-radius: 6px;
+  --amaran-margin: 10px;
+  --amaran-font: 'Open Sans', Helvetica, Arial, sans-serif;
+  --amaran-font-size: 13px;
+  --amaran-color-ok: #178b13;
+  --amaran-color-error: #d82222;
+  --amaran-color-warning: #9f6000;
+  --amaran-color-yellow: #cfa846;
+  --amaran-color-blue: #2980b9;
+  --amaran-color-green: #27ae60;
+  --amaran-color-purple: #5b54aa;
+}
+
+/* ─── Wrapper ────────────────────────────────────────────────── */
+.amaran-wrapper *,
+.amaran-wrapper *::before,
+.amaran-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.amaran-wrapper {
+  position: fixed;
+  z-index: var(--amaran-z-notification);
+}
+
+.amaran-wrapper.top    { top: 0; bottom: auto; }
+.amaran-wrapper.bottom { bottom: 0; top: auto; }
+.amaran-wrapper.left   { left: 0; }
+.amaran-wrapper.right  { right: 0; left: auto; }
+
+.amaran-wrapper.center {
+  width: 50%;
+  height: 50%;
+  inset: 0;
+  margin: auto;
+}
+
+/* ─── Base notification ──────────────────────────────────────── */
+.amaran {
+  display: none;
+  position: relative;
+  width: 200px;
+  min-height: 50px;
+  margin: var(--amaran-margin);
+  padding: 3px;
+  background: rgb(0 0 0 / 70%);
+  color: #fff;
+  font-family: var(--amaran-font);
+  font-size: var(--amaran-font-size);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* ─── Close button ───────────────────────────────────────────── */
+.amaran-close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.amaran-close::before {
+  content: '×';
+  color: #fff;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+/* ─── Sticky button ──────────────────────────────────────────── */
+.amaran-sticky {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.amaran-sticky::before {
+  content: '●';
+  color: #fff;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.amaran-sticky.sticky::before {
+  color: var(--amaran-color-green);
+}
+
+/* ─── Overlay ────────────────────────────────────────────────── */
+.amaran-overlay {
+  position: fixed;
+  inset: 0;
+  display: block;
+  background: rgb(153 204 51 / 90%);
+  z-index: var(--amaran-z-overlay);
+}
+
+.amaran-overlay .amaran-wrapper {
+  z-index: var(--amaran-z-notification);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   THEMES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Default theme ──────────────────────────────────────────── */
+.amaran.default {
+  display: none;
+  width: 300px;
+  min-height: 45px;
+  margin: 5px;
+  overflow: hidden;
+  background: linear-gradient(to right, #111213 15%, #1b1e24 15%);
+  color: #fff;
+  font-family: var(--amaran-font);
+  font-size: var(--amaran-font-size);
+  font-weight: 300;
+  border-bottom: 1px solid #111213;
+  border-radius: var(--amaran-radius);
+  align-items: center;
+}
+
+.amaran.default .default-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  min-height: 45px;
+  flex-shrink: 0;
+}
+
+.amaran.default .default-spinner span {
+  width: 18px;
+  height: 18px;
+  background: var(--amaran-color-green);
+  border-radius: 50%;
+  display: block;
+}
+
+.amaran.default .default-message {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.amaran.default .default-message span {
+  padding: 3px;
+  line-height: 1.4;
+}
+
+/* Make default theme use flexbox */
+.amaran.default,
+.amaran.default > * {
+  display: flex;
+}
+
+/* ─── Awesome theme ──────────────────────────────────────────── */
+.amaran.awesome {
+  display: none;
+  width: 300px;
+  min-height: 65px;
+  margin: 15px;
+  padding: 5px 5px 5px 70px;
+  background: #f3f3f3;
+  color: #222;
+  font-family: var(--amaran-font);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+}
+
+.amaran.awesome .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset-block-start: 50%;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+  translate: 0 -50%;
+}
+
+.amaran.awesome p {
+  padding: 0;
+  margin: 0;
+}
+
+.amaran.awesome p span {
+  font-weight: 300;
+}
+
+.amaran.awesome p span.light {
+  display: block;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Awesome colour variants */
+.amaran.awesome.ok     { --_accent: var(--amaran-color-ok); }
+.amaran.awesome.error  { --_accent: var(--amaran-color-error); }
+.amaran.awesome.warning{ --_accent: var(--amaran-color-warning); }
+.amaran.awesome.yellow { --_accent: var(--amaran-color-yellow); }
+.amaran.awesome.blue   { --_accent: var(--amaran-color-blue); }
+.amaran.awesome.green  { --_accent: var(--amaran-color-green); }
+.amaran.awesome.purple { --_accent: var(--amaran-color-purple); }
+
+.amaran.awesome.ok,
+.amaran.awesome.error,
+.amaran.awesome.warning,
+.amaran.awesome.yellow,
+.amaran.awesome.blue,
+.amaran.awesome.green,
+.amaran.awesome.purple {
+  p.bold { color: var(--_accent); }
+  .icon  { background-color: var(--_accent); }
+}
+
+/* ─── User theme ─────────────────────────────────────────────── */
+.amaran.user {
+  display: none;
+  width: 300px;
+  min-height: 100px;
+  margin: 15px;
+  padding: 0;
+  background: #f3f3f3;
+  color: #222;
+  font-family: var(--amaran-font);
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 0;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+  overflow: hidden;
+}
+
+.amaran.user .icon {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  flex-shrink: 0;
+}
+
+.amaran.user img {
+  max-width: 100%;
+  display: block;
+}
+
+.amaran.user .info {
+  padding: 10px 10px 10px 10px;
+  flex: 1;
+}
+
+.amaran.user b {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* User colour variants */
+.amaran.user.blue   { background: #2773ed; color: #fff; }
+.amaran.user.yellow { background: #f4b300; color: #fff; }
+.amaran.user.green  { background: #78ba00; color: #fff; }
+
+/* Make user theme use flexbox */
+.amaran.user {
+  display: none;
+}
+
+.amaran.user > .icon,
+.amaran.user > .info {
+  display: flex;
+}
+
+/* ─── Colorful theme ─────────────────────────────────────────── */
+.amaran.colorful {
+  display: none;
+  width: 300px;
+  min-height: 45px;
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+}
+
+.amaran.colorful .colorful-inner {
+  width: 100%;
+  min-height: 45px;
+  padding: 15px 25px 15px 15px;
+  background: #484860;
+  color: #fff;
+  font-size: 14px;
+  border-bottom: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.amaran.colorful .amaran-close {
+  color: #fff;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amaran-wrapper.center .amaran.colorful {
+  margin-inline: auto;
+}
+
+/* ─── Tumblr theme ───────────────────────────────────────────── */
+.amaran.tumblr {
+  display: none;
+  width: 300px;
+  min-height: 45px;
+  overflow: hidden;
+  background: #fff;
+  color: #444;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
+  padding: 0;
+}
+
+.amaran.tumblr .title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+
+.amaran.tumblr .content {
+  padding: 5px;
+}
+
+.amaran.tumblr .amaran-close {
+  z-index: 2;
+}
+
+.amaran.tumblr .amaran-close::before {
+  color: #000;
+}
