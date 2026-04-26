@@ -4,23 +4,27 @@
   "description": "Nice, sleek and stylish notifications.",
   "author": "Hakan ERSU",
   "homepage": "http://hakanersu.github.io/AmaranJS/",
-  "version": "0.5.5",
+  "version": "0.6.0",
+  "type": "module",
+  "main": "dist/js/jquery.amaran.js",
+  "types": "dist/types/jquery.amaran.d.ts",
+  "scripts": {
+    "build:js": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --outfile=dist/js/jquery.amaran.js --sourcemap",
+    "build:js:min": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --minify --outfile=dist/js/jquery.amaran.min.js",
+    "build:css": "node scripts/build-css.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:js && npm run build:js:min && npm run build:css && npm run build:types",
+    "typecheck": "tsc --noEmit",
+    "dev": "esbuild src/ts/jquery.amaran.ts --bundle --format=iife --global-name=Amaran --external:jquery --outfile=dist/js/jquery.amaran.js --sourcemap --watch"
+  },
   "devDependencies": {
-      "gulp" : "*",
-      "gulp-ruby-sass" : "*",
-      "gulp-autoprefixer" : "*",
-      "gulp-minify-css" : "*",
-      "gulp-jshint" : "*",
-      "gulp-uglify" : "*",
-      "gulp-imagemin" : "*",
-      "gulp-rename" : "*",
-      "gulp-clean" : "*",
-      "gulp-concat" : "*",
-      "gulp-notify" : "*",
-      "gulp-cache" : "*",
-      "gulp-livereload" : "*",
-      "tiny-lr" : "*",
-      "gulp-coffee":"*",
-      "gulp-plumber":"*"
-  }
+    "@types/jquery": "^3.5.32",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "jquery": ">=1.9.0"
+  },
+  "keywords": ["notification", "jquery", "plugin", "toast"],
+  "license": "MIT"
 }
